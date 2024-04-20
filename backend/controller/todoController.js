@@ -3,7 +3,9 @@ const User = require("../model/userModel");
 
 exports.createTodo = async (req, res) => {
   try {
-    const { title, description, email } = req.body;
+    // const { title, description,email } = req.body;
+
+    const { title, description } = req.body;
     console.log(req.body);
 
     if (!title || !description) {
@@ -12,18 +14,18 @@ exports.createTodo = async (req, res) => {
       });
     }
 
-    const emailChecked = await User.findOne({ userEmail: email });
+    // const emailChecked = await User.findOne({ userEmail: email });
 
-    if (!emailChecked) {
-      return res.status(404).json({
-        message: "User not found",
-      });
-    }
+    // if (!emailChecked) {
+    //   return res.status(404).json({
+    //     message: "User not found",
+    //   });
+    // }
 
     const todoCreate = await todoItems.create({
       todoTitle: title,
       todoDescription: description,
-      user: emailChecked._id,
+      // user: emailChecked._id,
     });
 
     res.status(200).json({
@@ -40,7 +42,7 @@ exports.createTodo = async (req, res) => {
 exports.updateTodo = async (req, res) => {
   try {
     const todoId = req.params.id;
-    const { title, description, email } = req.body;
+    const { title, description } = req.body;
     console.log(req.body);
 
     if (!title || !description) {
@@ -49,13 +51,13 @@ exports.updateTodo = async (req, res) => {
       });
     }
 
-    const emailChecked = await User.findOne({ userEmail: email });
+    // const emailChecked = await User.findOne({ userEmail: email });
 
-    if (!emailChecked) {
-      return res.status(404).json({
-        message: "User not found",
-      });
-    }
+    // if (!emailChecked) {
+    //   return res.status(404).json({
+    //     message: "User not found",
+    //   });
+    // }
 
     const todoCreate = await todoItems.findByIdAndUpdate(
       todoId, //for taking todo unique id
