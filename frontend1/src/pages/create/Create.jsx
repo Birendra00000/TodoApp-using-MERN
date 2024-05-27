@@ -1,13 +1,30 @@
 import React, { useState } from "react";
-import Button from "react-bootstrap/Button";
 import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const Create = () => {
   // let navigate = useNavigate();
   // function handleClick() {
   //   navigate("/");
   // }
+  <ToastContainer
+    position="top-right"
+    autoClose={5000}
+    hideProgressBar={false}
+    newestOnTop={false}
+    closeOnClick
+    rtl={false}
+    pauseOnFocusLoss
+    draggable
+    pauseOnHover
+    theme="light"
+  />;
+
+  const notifySuccess = (successmessage) => toast.success(successmessage);
+
+  const notifyError = (errorMessage) => toast.error(errorMessage);
 
   const [error, setError] = useState("");
 
@@ -30,9 +47,9 @@ const Create = () => {
         "http://localhost:4000/api/todo",
         datas
       );
-      console.log(response);
+      notifySuccess(response.data.message);
     } catch (error) {
-      setError(error.response.data.message);
+      notifyError(error.response.data.message);
     }
   };
 
@@ -64,15 +81,19 @@ const Create = () => {
             onChange={handleChange}
           />
         </div>
-        {error && (
+        {/* {error && (
           <>
             <div className="flec justify-start text-red-700">{error}</div>
           </>
-        )}
+        )} */}
         <div className="flex items-center justify-center h-[50px] w-full">
-          <button className="text-lg text-white py-1 px-3 rounded-md bg-lightblue">
+          <button
+            className="text-lg text-white py-1 px-3 rounded-md bg-lightblue"
+            type="submit"
+          >
             Submit
           </button>
+          <ToastContainer />
         </div>
       </form>
     </div>

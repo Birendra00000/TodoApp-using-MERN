@@ -5,7 +5,7 @@ const Navbar = () => {
   return (
     <div className="flex justify-between bg-blue-300 text-white h-20 items-center">
       {" "}
-      <Link to="/" className="ml-[4%] text-lg">
+      <Link to="/" className="ml-[4%] text-lg no-underline">
         <div className="flex">
           <h5>Software</h5>
           <h5 className="text-red-400">Ai</h5>

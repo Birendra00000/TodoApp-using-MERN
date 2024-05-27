@@ -29,7 +29,7 @@ exports.createTodo = async (req, res) => {
     });
 
     res.status(200).json({
-      message: "Todo created succeffully",
+      message: "Todo created succefully",
       data: todoCreate,
     });
   } catch (error) {

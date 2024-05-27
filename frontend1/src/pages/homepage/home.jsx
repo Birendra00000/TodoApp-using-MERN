@@ -22,18 +22,20 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="mt-[2%] mx-[2%] grid grid-cols-4 scroll-smooth mb-[4%]">
+    <div className="mt-[2%] mx-[2%] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 scroll-smooth mb-[4%]">
       {todos.map((item) => {
         return (
           <>
             <Link key={item._id} to={`/${item._id}`} className="no-underline">
-              <div className="w-[300px] h-[100px] bg-lightblue text-white mt-3  ml-auto mr-auto rounded-lg shadow-lg shadow-blue-500/50 bg-blue-400">
-                <div className="flex justify-center text-[22px] text-center border-b-white p-2 h-[65%] ">
+              <div className="w-[300px] h-[200px] lg:w-[400px] lg:h-[300px] bg-lightblue text-white mt-3  ml-auto mr-auto rounded-lg shadow-lg shadow-blue-500/50">
+                <div className="flex justify-center text-[22px] text-center border-b-white p-2 h-[40%] ">
                   {" "}
                   {item.todoTitle}
                 </div>
 
-                <div className="flex h-[35%] justify-end mb-2 mr-2 text-sm"></div>
+                <div className="flex h-[50%] text-md justify-center p-2">
+                  {item.todoDescription}
+                </div>
               </div>
             </Link>
           </>
