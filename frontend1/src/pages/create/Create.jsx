@@ -9,18 +9,11 @@ const Create = () => {
   // function handleClick() {
   //   navigate("/");
   // }
-  <ToastContainer
-    position="top-right"
-    autoClose={5000}
-    hideProgressBar={false}
-    newestOnTop={false}
-    closeOnClick
-    rtl={false}
-    pauseOnFocusLoss
-    draggable
-    pauseOnHover
-    theme="light"
-  />;
+
+  const [datas, setData] = useState({
+    title: "",
+    description: "",
+  });
 
   const notifySuccess = (successmessage) => toast.success(successmessage);
 
@@ -28,10 +21,6 @@ const Create = () => {
 
   const [error, setError] = useState("");
 
-  const [datas, setData] = useState({
-    title: "",
-    description: "",
-  });
   const handleChange = (e) => {
     setData({
       ...datas,

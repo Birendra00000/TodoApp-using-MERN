@@ -1,6 +1,24 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Update from "../update/Update";
+import DeleteTodo from "../delete/DeleteTodo";
+
+<ToastContainer
+  position="top-right"
+  autoClose={5000}
+  hideProgressBar={false}
+  newestOnTop={false}
+  closeOnClick
+  rtl={false}
+  pauseOnFocusLoss
+  draggable
+  pauseOnHover
+  theme="light"
+/>;
 
 const SingleTodo = () => {
   const { id } = useParams();
@@ -31,8 +49,12 @@ const SingleTodo = () => {
                 {item.todoTitle}
               </div>
 
-              <div className="flex h-[50%] text-md justify-center p-2 overflow-auto">
+              <div className="flex h-[70%] text-md justify-center p-2 overflow-auto">
                 {item.todoDescription}
+              </div>
+              <div className="flex justify-center gap-4">
+                <Update item={item} id={id} />
+                <DeleteTodo />
               </div>
             </div>
           </>
