@@ -4,17 +4,21 @@ import "react-toastify/dist/ReactToastify.css";
 import { RxCross2 } from "react-icons/rx";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
-import { redirect } from "react-router-dom";
+// import { Navigate, useNavigate } from "react-router-dom";
 
 const Update = ({ item, id }) => {
+  // const navigate = useNavigate();
+
+  // const handleNavigate = () => {
+  //   navigate("/");
+  // };
+
   const [show, setShow] = useState(false);
   const [close, setClose] = useState(true);
 
   const notifySuccess = (successmessage) => toast.success(successmessage);
 
   const notifyError = (errorMessage) => toast.error(errorMessage);
-
-  const [error, setError] = useState("");
 
   const handleClose = () => {
     setShow(false);
@@ -34,7 +38,7 @@ const Update = ({ item, id }) => {
         datas
       );
       notifySuccess(response.data.message);
-      return redirect("/");
+      setShow(false);
     } catch (error) {
       notifyError(error.response.data.message);
     }
@@ -50,7 +54,7 @@ const Update = ({ item, id }) => {
   return (
     <>
       <button
-        className="bg-gray-400 p-2 rounded-lg"
+        className="bg-gray-500 p-2 rounded-lg"
         onClick={() => setShow(!show)}
       >
         Update
@@ -58,11 +62,11 @@ const Update = ({ item, id }) => {
 
       {show && (
         <div
-          className="w-full flex justify-center items-center h-screen bg-darkgreen absolute top-[-12px] bg-[#00000047]
+          className="w-full flex justify-center items-center h-screen bg-darkgreen absolute top-0 bg-[#7973733d]
           rounded-md"
         >
           <form
-            className="w-[430px] h-[400px] shadow-md text-black bg-white"
+            className="w-[430px] h-[400px] shadow-md text-black bg-white absolute top-[85px]"
             onSubmit={(e) => updateTodo(e)}
           >
             <div
