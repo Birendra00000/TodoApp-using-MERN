@@ -27,16 +27,21 @@ const Create = () => {
       [e.target.name]: e.target.value,
     });
   };
-  console.log("data", datas);
+  console.log("data", datas.title.length);
+  console.log("data", datas.description.length);
 
   const submitTodo = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(
-        "http://localhost:4000/api/todo",
-        datas
-      );
-      notifySuccess(response.data.message);
+      if (datas.title.length < 150 && datas.description.length < 500) {
+        const response = await axios.post(
+          "http://localhost:4000/api/todo",
+          datas
+        );
+        notifySuccess(response.data.message);
+      } else {
+        notifyError("You cannot submit form");
+      }
     } catch (error) {
       notifyError(error.response.data.message);
     }

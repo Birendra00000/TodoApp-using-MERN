@@ -3,7 +3,11 @@ import CreateModal from "./createModal";
 import { Link } from "react-router-dom";
 const Navbar = () => {
   return (
-    <div className="flex justify-between bg-blue-300 text-white h-20 items-center">
+    <div
+      className="flex justify-between bg-blue-300 text-white h-20 items-center
+    w-full fixed top-0 left-0
+    "
+    >
       {" "}
       <Link to="/" className="ml-[4%] text-lg no-underline">
         <div className="flex">
