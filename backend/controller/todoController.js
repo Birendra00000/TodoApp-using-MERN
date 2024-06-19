@@ -5,8 +5,7 @@ exports.createTodo = async (req, res) => {
   try {
     // const { title, description,email } = req.body;
 
-    const { title, description } = req.body;
-    console.log(req.body);
+    const { title, description, date, priority } = req.body;
 
     if (!title || !description) {
       return res.status(400).json({
@@ -25,6 +24,8 @@ exports.createTodo = async (req, res) => {
     const todoCreate = await todoItems.create({
       todoTitle: title,
       todoDescription: description,
+      todoDate: date,
+      todoPriority: priority,
       // user: emailChecked._id,
     });
 

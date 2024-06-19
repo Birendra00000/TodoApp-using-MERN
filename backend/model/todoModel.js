@@ -10,12 +10,22 @@ const todoSchema = new Schema({
     type: String,
     required: [true],
   },
-  user: [
-    {
-      type: mongoose.Types.ObjectId,
-      ref: "User",
-    },
-  ],
+  todoDate: {
+    type: Date,
+    default: Date.now,
+  },
+  todoPriority: {
+    type: String,
+    enum: ["Extreme", "Moderate", "Low"],
+    default: "Extreme",
+  },
+
+  // user: [
+  //   {
+  //     type: mongoose.Types.ObjectId,
+  //     ref: "User",
+  //   },
+  // ],
 });
 
 module.exports = mongoose.model("todoItems", todoSchema);
