@@ -8,34 +8,41 @@ import { CiSearch } from "react-icons/ci";
 const Navbar = () => {
   return (
     <div
-      className="grid grid-cols-3 justify-between bg-blue-300 text-white h-20 items-center
-    w-full fixed top-0 left-0
-    "
+      className="w-full flex justify-center bg-[#f4f4dd] text-white h-20 items-center
+    shadow-md"
     >
-      {" "}
-      <Link to="/" className="ml-[4%] text-xl no-underline">
-        <div className="flex text-black">
-          <h5>To-</h5>
-          <h5 className="text-red-400">Do</h5>
-        </div>
-      </Link>
-      <div className="flex justify-start items-center">
-        <div>
-          <input type="search" name="" id="" className="w-[400px] p-[6px]" />
-          <button className="bg-red-400 p-1 rounded-xl">
+      {/* fixed top-0 left-0  */}
+      <div
+        className="grid grid-cols-3 justify-between  w-[90%] h-full items-center
+    "
+      >
+        {" "}
+        <Link to="/" className=" no-underline">
+          <div className="flex text-black mb-0 ">
+            <h5 className="text-[24px] font-semibold">To-</h5>
+            <h5 className="text-red-400 mb-0 text-[24px] font-semibold">Do</h5>
+          </div>
+        </Link>
+        <div className="flex justify-start items-center">
+          <input
+            type="search"
+            name=""
+            id=""
+            className="w-[400px] p-[6px] outline-none"
+          />
+          <button className="bg-red-400 px-[6px] py-[6px] rounded-sm">
             <CiSearch className=" size-6 text-white" />
           </button>
-        </div>{" "}
-      </div>
-      <div className="flex  items-center justify-center gap-4">
-        <button className="bg-red-400 p-1 rounded-xl">
-          <HiOutlineBellAlert className="size-6 text-white" />{" "}
-        </button>
-        <div className="bg-red-400 p-1 rounded-xl">
-          <LuCalendarDays className=" size-6 text-white" />
         </div>
-      </div>
-      {/* <CreateModal />
+        <div className="flex  items-center justify-center gap-4">
+          <button className="bg-red-400 p-1 rounded-xl">
+            <HiOutlineBellAlert className="size-6 text-white" />{" "}
+          </button>
+          <div className="bg-red-400 p-1 rounded-xl">
+            <LuCalendarDays className=" size-6 text-white" />
+          </div>
+        </div>
+        {/* <CreateModal />
         <Link to="/" className="no-underline">
           {" "}
           <div>Todos</div>
@@ -48,6 +55,7 @@ const Navbar = () => {
           {" "}
           <div>Login</div>
         </Link> */}
+      </div>
     </div>
   );
 };

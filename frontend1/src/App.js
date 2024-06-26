@@ -1,27 +1,63 @@
 import "./App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { createBrowserRouter, Route, Link, Outlet } from "react-router-dom";
 import Home from "./pages/homepage/home";
 import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
 import Create from "./pages/create/Create";
 import SingleTodo from "./pages/single/SingleTodo";
 import Navbar from "./components/Navbar";
+import DashBoard from "./pages/dashboard/DashBoard";
+import SideBar from "./components/sideBar/SideBar";
+import UserTask from "./pages/myTask/UserTask";
+import { RouterProvider } from "react-router-dom";
 
 function App() {
-  return (
-    <>
-      <BrowserRouter>
+  const LayOut = () => {
+    return (
+      <div>
         <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/create" element={<Create />} />
-          <Route path="/:id" element={<SingleTodo />} />
-        </Routes>
-      </BrowserRouter>
-    </>
-  );
+        <div className="flex gap-10">
+          <div>
+            <SideBar />
+          </div>
+          <div>
+            <Outlet />
+          </div>
+        </div>
+      </div>
+    );
+  };
+
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <LayOut />,
+      children: [
+        {
+          path: "/",
+          element: <DashBoard />,
+        },
+        {
+          path: "/create",
+          element: <Create />,
+        },
+
+        {
+          path: "/usertask",
+          element: <UserTask />,
+        },
+      ],
+    },
+    {
+      path: "/login",
+      element: <Login />,
+    },
+    {
+      path: "/register",
+      element: <Register />,
+    },
+  ]);
+  return <RouterProvider router={router} />;
 }
 
 export default App;
