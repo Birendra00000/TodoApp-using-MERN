@@ -20,7 +20,7 @@ function App() {
           <div>
             <SideBar />
           </div>
-          <div>
+          <div className="w-full h-full">
             <Outlet />
           </div>
         </div>

@@ -18,6 +18,9 @@ const PORT = process.env.PORT;
 //For connecting data we are invoking a function
 connectDatabase(process.env.MONGO_URL);
 
+// // telling nodejs to give access to uploads folder
+app.use(express.static("./uploads"));
+
 //Routes API
 
 const UserRoutes = require("./router/userRoutes");

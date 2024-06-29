@@ -12,14 +12,15 @@ const todoSchema = new Schema({
   },
   todoDate: {
     type: Date,
-    default: Date.now,
   },
   todoPriority: {
     type: String,
     enum: ["Extreme", "Moderate", "Low"],
     default: "Extreme",
   },
-
+  todoImage: {
+    type: String,
+  },
   // user: [
   //   {
   //     type: mongoose.Types.ObjectId,
