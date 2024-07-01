@@ -1,31 +1,29 @@
 import React from "react";
 import { TbCalendarTime } from "react-icons/tb";
-import { FaPlus } from "react-icons/fa6";
+import AddTask from "./AddTask";
 const HeaderToday = () => {
+  const today = new Date();
 
-    const today = new Date();
+  // Array of month names
+  const monthNames = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
 
-    // Array of month names
-    const monthNames = [
-      "January",
-      "February",
-      "March",
-      "April",
-      "May",
-      "June",
-      "July",
-      "August",
-      "September",
-      "October",
-      "November",
-      "December",
-    ];
-  
-    //Toget day and month
-    const day = today.getDay() + 1;
-    const month = monthNames[today.getMonth()];
-    console.log("dayd", today);
-    
+  //Toget day and month
+  const day = today.getDay() + 1;
+  const month = monthNames[today.getMonth()];
+  console.log("dayd", today);
 
   return (
     <>
@@ -36,12 +34,8 @@ const HeaderToday = () => {
             <TbCalendarTime size={25} className="text-gray-500" />
             <p className="mb-0 text-red-400 font-semibold">TO-DO</p>
           </div>
-          <div>
-            <button className="flex gap-1 items-center p-1 ">
-              <FaPlus className="text-red-400" />
-              <p className="mb-0 text-gray-500">Add Task</p>
-            </button>
-          </div>
+
+          <AddTask />
         </div>
       </div>
       <div className="w-full flex justify-center">
