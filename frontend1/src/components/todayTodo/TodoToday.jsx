@@ -1,13 +1,13 @@
 import React from "react";
 import HeaderToday from "./HeaderToday";
+import CardTodo from "./CardTodo";
 
 const TodoToday = () => {
- return (
-    <div>
+  return (
+    <div className="h-full overflow-y-scroll">
       <HeaderToday />
-      <div>
-        <div></div>
-      </div>
+
+      <CardTodo />
     </div>
   );
 };
