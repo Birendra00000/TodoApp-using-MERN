@@ -37,3 +37,9 @@ input[type="radio"]:checked::before {
   font-weight: bolder;
   font-size: 16px;
 }
+.custom-truncate {
+  display: -webkit-box;
+  -webkit-line-clamp: 5; /* Number of lines to show before truncation */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

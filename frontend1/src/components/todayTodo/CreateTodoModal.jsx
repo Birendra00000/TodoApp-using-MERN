@@ -3,7 +3,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import "./todayTodo.css";
 import { FiUpload } from "react-icons/fi";
 
 const CreateTodoModal = ({ handleClick }) => {
