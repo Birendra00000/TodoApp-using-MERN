@@ -93,8 +93,6 @@ const TodoStatusColor = ({ date }) => {
 const TodoStatus = ({ date }) => {
   const today = new Date();
   const due = new Date(date);
-  console.log("today", today);
-  console.log("due", due);
 
   let progressStatus = "";
   let statusColor = "";

@@ -1,6 +1,7 @@
 import React from "react";
 import TodoToday from "../../components/todayTodo/TodoToday";
 import TodoStatus from "../../components/taskStatus/TodoStatus";
+import CompletedTodoCard from "../../components/todayTodo/CompletedTodoCard";
 
 const DashBoard = () => {
   return (
@@ -14,7 +15,9 @@ const DashBoard = () => {
           <div className="shadow-lg ">
             <TodoStatus />
           </div>
-          <div className="shadow-lg ">3</div>
+          <div className="shadow-lg ">
+            <CompletedTodoCard />
+          </div>
         </div>
       </div>
     </div>
