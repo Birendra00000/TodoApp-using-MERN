@@ -22,11 +22,13 @@ const SideBar = () => {
                 <p className="mb-0 font-medium ">DashBoard</p>
               </div>{" "}
             </Link>
-            <div className="flex gap-2 items-center p-2 hover:bg-white hover:text-red-400 w-[285px] hover:rounded-md">
-              <FaExclamation />
-              <p className="mb-0 font-medium">Vital Task</p>
-            </div>{" "}
-            <Link to="usertask" className="no-underline text-white ">
+            <Link to="/vitaltask" className=" no-underline text-white">
+              <div className="flex gap-2 items-center p-2 hover:bg-white hover:text-red-400 w-[285px] hover:rounded-md">
+                <FaExclamation />
+                <p className="mb-0 font-medium">Vital Task</p>
+              </div>{" "}
+            </Link>
+            <Link to="/usertask" className="no-underline text-white ">
               <div className="flex gap-2 items-center p-2 hover:bg-white hover:text-red-400 w-[285px] hover:rounded-md">
                 <FaRegCalendarCheck />
                 <p className="mb-0 font-medium">My task</p>

@@ -15,7 +15,7 @@ const CardTodo = () => {
   }, []);
 
   return (
-    <div className="w-full  flex justify-center mt-2 flex-col items-center gap-3">
+    <div className="w-full  flex justify-center mt-2 flex-col items-center gap-3 mb-[4%]">
       {todos &&
         todos.map((todo) => {
           return (
@@ -31,11 +31,11 @@ const CardTodo = () => {
                     </p>
                   </span>
                 </span>
-                <span className="col-span-3 flex items-end justify-center h-full">
+                <span className="col-span-3 flex items-end justify-center h-[120px]">
                   <img
                     src={todo.todoImage}
                     alt=""
-                    className="w-[120px] h-[120px] object-cover rounded-lg"
+                    className="w-[120px] h-full object-cover rounded-lg"
                   />
                 </span>
               </div>

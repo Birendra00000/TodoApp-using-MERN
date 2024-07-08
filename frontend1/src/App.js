@@ -10,6 +10,7 @@ import DashBoard from "./pages/dashboard/DashBoard";
 import SideBar from "./components/sideBar/SideBar";
 import UserTask from "./pages/myTask/UserTask";
 import { RouterProvider } from "react-router-dom";
+import VitalTask from "./pages/vitalTask/VitalTask";
 
 function App() {
   const LayOut = () => {
@@ -45,6 +46,10 @@ function App() {
         {
           path: "/usertask",
           element: <UserTask />,
+        },
+        {
+          path: "/vitaltask",
+          element: <VitalTask />,
         },
       ],
     },

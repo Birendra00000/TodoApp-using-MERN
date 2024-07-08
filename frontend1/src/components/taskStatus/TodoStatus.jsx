@@ -114,7 +114,11 @@ const TodoStatus = () => {
               text={`${notStarted}%`}
               styles={buildStyles(notStartedBarStyles)}
             />{" "}
-            <span className="flex items-center justify-center">
+            <span
+              className="flex items-center justify-center
+            
+            "
+            >
               <span className="h-4 w-4 rounded-full border-2 bg-red-500 flex"></span>
               <p className="mb-0">Not Started</p>
             </span>

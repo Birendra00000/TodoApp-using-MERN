@@ -6,7 +6,6 @@ import axios from "axios";
 import { createContext, useContext } from "react";
 import { Link } from "react-router-dom";
 import SideBar from "../../components/sideBar/SideBar";
-import MainPage from "../../components/mainHomePage/MainPage";
 import DashBoard from "../dashboard/DashBoard";
 
 export default function Home() {
