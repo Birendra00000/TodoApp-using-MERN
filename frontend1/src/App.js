@@ -1,5 +1,5 @@
-import "./App.css";
-import { createBrowserRouter, Route, Link, Outlet } from "react-router-dom";
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/homepage/home";
 import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
@@ -9,60 +9,32 @@ import Navbar from "./components/Navbar";
 import DashBoard from "./pages/dashboard/DashBoard";
 import SideBar from "./components/sideBar/SideBar";
 import UserTask from "./pages/myTask/UserTask";
-import { RouterProvider } from "react-router-dom";
 import VitalTask from "./pages/vitalTask/VitalTask";
+import MainContext from "./Context/MainContext";
 
-function App() {
-  const LayOut = () => {
-    return (
-      <div>
-        <Navbar />
-        <div className="flex gap-10">
-          <div>
-            <SideBar />
-          </div>
-          <div className="w-full h-full">
-            <Outlet />
+const App = () => {
+  return (
+    <Router>
+      <MainContext>
+        <div>
+          <Navbar />
+          <div className="flex gap-10">
+            <div>
+              <SideBar />
+            </div>
+            <div className="w-full h-full">
+              <Routes>
+                <Route path="/" element={<DashBoard />} />
+                <Route path="/create" element={<Create />} />
+                <Route path="/usertask" element={<UserTask />} />
+                <Route path="/vitaltask" element={<VitalTask />} />
+              </Routes>
+            </div>
           </div>
         </div>
-      </div>
-    );
-  };
-
-  const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <LayOut />,
-      children: [
-        {
-          path: "/",
-          element: <DashBoard />,
-        },
-        {
-          path: "/create",
-          element: <Create />,
-        },
-
-        {
-          path: "/usertask",
-          element: <UserTask />,
-        },
-        {
-          path: "/vitaltask",
-          element: <VitalTask />,
-        },
-      ],
-    },
-    {
-      path: "/login",
-      element: <Login />,
-    },
-    {
-      path: "/register",
-      element: <Register />,
-    },
-  ]);
-  return <RouterProvider router={router} />;
-}
+      </MainContext>
+    </Router>
+  );
+};
 
 export default App;
