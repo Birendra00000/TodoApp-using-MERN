@@ -1,8 +1,7 @@
 import React from "react";
+import TodoStatus from "./TodoStatus";
 
 const CardContainer = ({ todo }) => {
-  console.log("todos", todo);
-
   return (
     <div className="w-[90%]  h-[200px] border border-gray-500 rounded-lg ">
       <div className="w-full grid grid-cols-8 gap-2 items-center h-[80%]">
@@ -70,21 +69,21 @@ const TodoStatusColor = ({ date }) => {
   );
 };
 
-const TodoStatus = ({ date }) => {
-  const today = new Date();
-  const due = new Date(date);
+// const TodoStatus = ({ date }) => {
+//   const today = new Date();
+//   const due = new Date(date);
 
-  let progressStatus = "";
-  let statusColor = "";
-  if (due.toDateString() === today.toDateString()) {
-    progressStatus = "In progress";
-    statusColor += "text-blue-500";
-  } else if (due < today) {
-    progressStatus = "Completed"; // Overdue todo
-    statusColor = "text-green-500";
-  } else {
-    progressStatus = "Not Started"; // Future todo
-    statusColor += "text-red-500";
-  }
-  return <div className={statusColor}>{progressStatus}</div>;
-};
+//   let progressStatus = "";
+//   let statusColor = "";
+//   if (due.toDateString() === today.toDateString()) {
+//     progressStatus = "In progress";
+//     statusColor += "text-blue-500";
+//   } else if (due < today) {
+//     progressStatus = "Completed"; // Overdue todo
+//     statusColor = "text-green-500";
+//   } else {
+//     progressStatus = "Not Started"; // Future todo
+//     statusColor += "text-red-500";
+//   }
+//   return <div className={statusColor}>{progressStatus}</div>;
+// };

@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { RxCross2 } from "react-icons/rx";
+import { MdDelete } from "react-icons/md";
 
 <ToastContainer
   position="top-right"
@@ -48,10 +49,10 @@ const DeleteTodo = ({ id, item }) => {
   return (
     <>
       <button
-        className="bg-red-500 p-2 rounded-lg"
-        onClick={() => setShow(!show)}
+        className="px-1 py-2 bg-red-400 text-white 
+            w-[50px] flex justify-center text-[25px] rounded-md items-center"
       >
-        Delete
+        <MdDelete />
       </button>
       {show && (
         <>
