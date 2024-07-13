@@ -52,7 +52,7 @@ exports.createTodo = async (req, res) => {
 
 exports.updateTodo = async (req, res) => {
   try {
-    const { id } = req.params;
+    const todoId = req.params.id;
     const { title, description, date, priority } = req.body;
     console.log(req.body);
 
@@ -63,7 +63,7 @@ exports.updateTodo = async (req, res) => {
       });
     }
 
-    const todoExist = await todoItems.findById(id);
+    const todoExist = await todoItems.findById(todoId);
 
     if (!todoExist) {
       return res.status(400).json({
@@ -72,7 +72,7 @@ exports.updateTodo = async (req, res) => {
     }
 
     const oldTodoImage = todoExist.todoImage;
-    const lengthCut = oldTodoImage.process.env.URL;
+    const lengthCut = process.env.URL;
     const finalImagePathAfterCut = oldTodoImage.slice(lengthCut); //icon.consloe.png
     console.log(finalImagePathAfterCut);
 
@@ -88,7 +88,7 @@ exports.updateTodo = async (req, res) => {
     }
 
     const todoUpdate = await todoItems.findByIdAndUpdate(
-      id, //for taking todo unique id
+      todoId, //for taking todo unique id
       {
         title,
         description,
@@ -96,7 +96,7 @@ exports.updateTodo = async (req, res) => {
         priority,
         todoImage:
           req.file && req.file.filename
-            ? process.env.BACKEND_URL + req.file.filename
+            ? process.env.URL + req.file.filename
             : oldTodoImage,
       },
       { new: true } //The { new: true } option ensures that the updated document is returned.

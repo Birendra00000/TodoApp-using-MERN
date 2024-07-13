@@ -4,23 +4,18 @@ const Schema = mongoose.Schema;
 const userSchema = new Schema({
   userName: {
     type: String,
-    required: [false],
+    required: [true, "Pleased provide a Username"],
   },
   userEmail: {
     type: String,
-    required: [false],
+    required: [true, "Pleased provide a Email"],
+    unique: [true, "Email exist"],
   },
 
   userPassword: {
     type: String,
-    required: [false],
+    required: [true, "Pleased provide password"],
   },
-  list: [
-    {
-      type: mongoose.Types.ObjectId,
-      ref: "todoItems",
-    },
-  ],
 });
 
 const User = mongoose.model("User", userSchema);

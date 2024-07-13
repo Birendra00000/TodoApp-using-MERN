@@ -24,7 +24,9 @@ const App = () => {
             </div>
             <div className="w-full h-full">
               <Routes>
-                <Route path="/" element={<DashBoard />} />
+                <Route path="/" element={<DashBoard />} />{" "}
+                <Route path="/login" element={<Login />} />
+                <Route path="/register" element={<Register />} />
                 <Route path="/create" element={<Create />} />
                 <Route path="/usertask" element={<UserTask />} />
                 <Route path="/vitaltask" element={<VitalTask />} />

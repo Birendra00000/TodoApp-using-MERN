@@ -1,4 +1,6 @@
 const User = require("../model/userModel");
+const bcrypt = require("bcrypt");
+var jwt = require("jsonwebtoken");
 
 exports.userRegistration = async (req, res) => {
   try {
@@ -17,14 +19,23 @@ exports.userRegistration = async (req, res) => {
       });
     }
 
-    await User.create({
+    const hashPassword = await bcrypt.hash(password, 6);
+
+    const newUser = await User.create({
       userName: name,
       userEmail: email,
-      userPassword: password,
+      userPassword: hashPassword,
+    });
+
+    //FOR GENERATING JWT TOKEN
+
+    const token = jwt.sign({ id: newUser._id }, "secretkey1", {
+      expiresIn: "7d",
     });
 
     res.status(200).json({
       message: "Registered successfully",
+      token,
     });
   } catch (error) {
     console.log(error.message);

@@ -1,7 +1,7 @@
 import React from "react";
 import TodoStatus from "./TodoStatus";
-import { FaRegEdit } from "react-icons/fa";
-import TodoDelete from "./TodoDelete";
+import TodoDelete from "./delete/TodoDelete";
+import UpdateTodo from "./update/UpdateTodo";
 
 const SingleTodoComponents = ({ data }) => {
   console.log("dataaaa", data);
@@ -64,12 +64,7 @@ const SingleTodoComponents = ({ data }) => {
           </div>
           <span className="flex justify-end items-center gap-3 w-full">
             <TodoDelete id={data._id} />
-            <button
-              className="px-1 py-2 bg-red-400 text-white
-             w-[50px] flex justify-center text-[25px] rounded-md items-center"
-            >
-              <FaRegEdit />
-            </button>
+            <UpdateTodo data={data} id={data._id} />
           </span>
         </div>
       </div>
