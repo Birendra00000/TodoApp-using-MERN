@@ -11,7 +11,10 @@ const userSchema = new Schema({
     required: [true, "Pleased provide a Email"],
     unique: [true, "Email exist"],
   },
-
+  role: {
+    type: String,
+    default: "User",
+  },
   userPassword: {
     type: String,
     required: [true, "Pleased provide password"],

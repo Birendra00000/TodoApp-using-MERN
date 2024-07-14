@@ -2,28 +2,29 @@ const User = require("../model/userModel");
 const bcrypt = require("bcrypt");
 var jwt = require("jsonwebtoken");
 
-exports.userRegistration = async (req, res) => {
+exports.userRegistration = async (req, res, next) => {
   try {
     const { name, email, password } = req.body;
+    console.log(req.body);
     if (!name || !email || !password) {
       return res.status(400).json({
         message: "Pleased fill out the form",
       });
     }
 
-    const emailExist = await User.find({ userEmail: email });
+    const emailExist = await User.findOne({ userEmail: email.toLowerCase() });
 
-    if (emailExist.length > 0) {
+    if (emailExist) {
       return res.status(400).json({
         message: "Email already Exist",
       });
     }
 
-    const hashPassword = await bcrypt.hash(password, 6);
+    const hashPassword = await bcrypt.hash(req.body.password, 6);
 
     const newUser = await User.create({
       userName: name,
-      userEmail: email,
+      userEmail: email.toLowerCase(),
       userPassword: hashPassword,
     });
 
@@ -34,18 +35,19 @@ exports.userRegistration = async (req, res) => {
     });
 
     res.status(200).json({
+      data: newUser,
       message: "Registered successfully",
       token,
     });
   } catch (error) {
-    console.log(error.message);
+    next(error);
   }
 };
 
 exports.userLogin = async (req, res) => {
   try {
-    console.log(req.body);
     const { email, password } = req.body;
+    console.log(req.body);
 
     if (!email || !password) {
       return res.status(400).json({
@@ -53,25 +55,31 @@ exports.userLogin = async (req, res) => {
       });
     }
 
-    const userEmailExist = await User.find({ userEmail: email });
-    console.log(userEmailExist);
+    const user = await User.findOne({ userEmail: email.toLowerCase() });
+    console.log(user);
 
-    if (userEmailExist.length == 0) {
+    if (!user) {
       res.status(400).json({
-        message: "Pleased Registered",
+        message: "User Not Found",
       });
     }
-    const passwordChecked = userEmailExist[0].userPassword;
+    const isPasswordValid = await bcrypt.compare(password, user.userPassword);
 
-    if (passwordChecked == password) {
-      res.status(200).json({
-        message: "Signup successfully",
-      });
-    } else {
-      res.status(400).json({
-        message: "Invalid Password or Email",
-      });
+    if (!isPasswordValid) {
+      return next(new createError("Invalid email or password", 401));
     }
+
+    //FOR GENERATING JWT TOKEN
+
+    const token = jwt.sign({ id: user._id }, "secretkey1", {
+      expiresIn: "7d",
+    });
+
+    res.status(200).json({
+      user,
+      message: "Log In successfully",
+      token,
+    });
   } catch (error) {
     error.message;
   }

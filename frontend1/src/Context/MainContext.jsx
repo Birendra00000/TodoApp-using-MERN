@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import TodoContext from "./TodoContext";
 import axios from "axios";
 
-const MainContext = (props) => {
+const MainContext = ({ props }) => {
   const [todos, setTodos] = useState([]);
 
   const fetchData = async () => {
