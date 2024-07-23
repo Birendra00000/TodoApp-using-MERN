@@ -42,19 +42,6 @@ const Navbar = () => {
             <LuCalendarDays className=" size-6 text-white" />
           </div>
         </div>
-        {/* <CreateModal />
-        <Link to="/" className="no-underline">
-          {" "}
-          <div>Todos</div>
-        </Link>
-        <Link to="register" className="no-underline">
-          {" "}
-          <div>Register</div>
-        </Link>
-        <Link to="login" className="no-underline">
-          {" "}
-          <div>Login</div>
-        </Link> */}
       </div>
     </div>
   );

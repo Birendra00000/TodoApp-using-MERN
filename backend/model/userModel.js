@@ -13,6 +13,7 @@ const userSchema = new Schema({
   },
   role: {
     type: String,
+    required: [false, "Pleased provide a Email"],
     default: "User",
   },
   userPassword: {

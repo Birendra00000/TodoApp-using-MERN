@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { Link, redirect } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [data, setData] = useState({
@@ -9,6 +10,7 @@ const Login = () => {
     password: "",
   });
   const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setData({
@@ -25,7 +27,7 @@ const Login = () => {
         data
       );
       if (response) {
-        return redirect("/pages/create");
+        return navigate("/");
       }
       console.log(response);
     } catch (error) {
@@ -77,7 +79,7 @@ const Login = () => {
             </button>
           </div>
         </div>
-        <Link to="/pages/register">
+        <Link to="/register">
           <div className="flex justify-center">
             <p>or Get Registered</p>
           </div>

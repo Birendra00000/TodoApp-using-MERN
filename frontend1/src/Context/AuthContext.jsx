@@ -1,8 +1,8 @@
-import React, { createContext, useState, useEffect } from "react";
+import React, { createContext, useState, useEffect, useContext } from "react";
 
-const authContext = createContext();
+const AuthContext = createContext();
 
-const AuthContext = ({ children }) => {
+const AuthProvider = ({ children }) => {
   const [token, setToken] = useState(null);
   const [userData, setUserData] = useState(null);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -15,13 +15,35 @@ const AuthContext = ({ children }) => {
       setUserData(user);
       setIsAuthenticated(true);
     } else {
-      console.log("No user data is found");
+      console.log("No user data found in localStorage");
     }
-  });
+  }, []);
 
-  return <div>AuthContext</div>;
+  const logIn = (newToken, newData) => {
+    localStorage.setItem(
+      "user_data",
+      JSON.stringify({ userToken: newToken, user: newData })
+    );
+    setToken(newToken);
+    setUserData(newData);
+    setIsAuthenticated(true);
+  };
+
+  const logOut = () => {
+    localStorage.removeItem("user_data");
+    setToken(null);
+    setUserData(null);
+    setIsAuthenticated(false);
+  };
+
+  return (
+    <AuthContext.Provider
+      value={{ token, userData, isAuthenticated, logIn, logOut }}
+    >
+      {children}
+    </AuthContext.Provider>
+  );
 };
 
-export default AuthContext;
-
-export const useAuth = () => useContext(authContext);
+export default AuthProvider;
+export const useAuth = () => useContext(AuthContext);

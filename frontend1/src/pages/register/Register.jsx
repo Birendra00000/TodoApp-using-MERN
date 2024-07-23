@@ -1,30 +1,50 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { useAuth } from "../../Context/AuthContext";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
+  const { logIn } = useAuth();
+  const [error, setError] = useState(null);
   const [data, setData] = useState({
     name: "",
     email: "",
     password: "",
   });
+  const navigate = useNavigate();
+
   const handleChange = (e) => {
     setData({
       ...data,
       [e.target.name]: e.target.value,
     });
   };
+  const notifySuccess = (successmessage) => toast.success(successmessage);
+
+  const notifyError = (errorMessage) => toast.error(errorMessage);
 
   const submitData = async (e) => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:4000/api/register",
+        "http://localhost:4000/api/userRegister",
         data
       );
-      console.log(response);
+      console.log(JSON.stringify(response.data.data));
+      if (response.status === 200) {
+        const { newToken, newData } = response.data.data;
+        logIn(newToken, newData);
+        notifySuccess(response.data.message);
+
+        return navigate("/");
+      } else {
+        setError(response.data.message);
+      }
     } catch (error) {
-      console.log("There is an error");
+      notifyError(error.response.data.message);
     }
   };
 
@@ -37,6 +57,7 @@ const Register = () => {
         <span className="h-[20%] items-center justify-center  flex text-[25px] text-skyblue">
           <h5>Sign Up</h5>
         </span>
+        {error}
         <div className="flex flex-col justify-center items-center h-[50%] gap-[10%]">
           <div>
             <input
