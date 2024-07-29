@@ -16,8 +16,7 @@ import SideBar from "./components/sideBar/SideBar";
 import UserTask from "./pages/myTask/UserTask";
 import VitalTask from "./pages/vitalTask/VitalTask";
 import MainContext from "./Context/MainContext";
-import { useAuth } from "./Context/AuthContext";
-
+import ProtectedRoute from "./Context/ProtectedRoute";
 const App = () => {
   return (
     <Router>
@@ -25,19 +24,32 @@ const App = () => {
         <div>
           <Navbar />
           <div
-            className="flex gap-10 relative
-           top-[15%] z-[-30]"
+            className="flex gap-10 
+          "
           >
             <div>
-              <SideBar />
+              <ProtectedRoute element={<SideBar />} />{" "}
             </div>
             <div className="w-full h-full">
               <Routes>
-                <Route path="/" element={<DashBoard />} />
-                <Route path="/create" element={<Create />} />
-                <Route path="/usertask" element={<UserTask />} />
-                <Route path="/vitaltask" element={<VitalTask />} />{" "}
+                <Route
+                  path="/"
+                  element={<ProtectedRoute element={<DashBoard />} />}
+                />
+                <Route
+                  path="/create"
+                  element={<ProtectedRoute element={<Create />} />}
+                />
+                <Route
+                  path="/usertask"
+                  element={<ProtectedRoute element={<UserTask />} />}
+                />
+                <Route
+                  path="/vitaltask"
+                  element={<ProtectedRoute element={<VitalTask />} />}
+                />
                 <Route path="/login" element={<Login />} />
+
                 <Route path="/register" element={<Register />} />
               </Routes>
             </div>

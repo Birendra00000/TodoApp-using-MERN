@@ -6,7 +6,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
 
-const TodoRegister = () => {
+const Register = () => {
   const { logIn } = useAuth();
   const [error, setError] = useState(null);
   const [data, setData] = useState({
@@ -14,16 +14,13 @@ const TodoRegister = () => {
     email: "",
     password: "",
   });
-  console.log("LOGINNN", logIn);
-  // console.log("data", data);
   const navigate = useNavigate();
 
   const handleChange = (e) => {
-    setData((prevData) => ({
-      ...prevData,
-
+    setData({
+      ...data,
       [e.target.name]: e.target.value,
-    }));
+    });
   };
   const notifySuccess = (successmessage) => toast.success(successmessage);
 
@@ -38,11 +35,7 @@ const TodoRegister = () => {
       );
       console.log(JSON.stringify(response.data.data));
       if (response.status === 200) {
-        const newData = response.data.data;
-        const newToken = response.data.token;
-        console.log("response.data.token", response.data.token);
-        console.log("Received newToken:", newToken);
-        console.log("Received newData:", newData);
+        const { newToken, newData } = response.data.data;
         logIn(newToken, newData);
         notifySuccess(response.data.message);
 
@@ -72,7 +65,7 @@ const TodoRegister = () => {
               placeholder="Name"
               name="name"
               value={data.name}
-              className="border rounded-lg p-4 cursor-pointer"
+              className="border rounded-lg p-1 cursor-pointer"
               onChange={handleChange}
             />
           </div>{" "}
@@ -104,7 +97,7 @@ const TodoRegister = () => {
           <button className="bg-sky-500 text-white w-[60%] p-1 rounded-lg">
             Sign Up
           </button>
-          <Link to="/login">
+          <Link to="/pages/login">
             <div className="flex justify-center">
               <p>or Get SignIn</p>
             </div>
@@ -115,4 +108,4 @@ const TodoRegister = () => {
   );
 };
 
-export default TodoRegister;
+export default Register;

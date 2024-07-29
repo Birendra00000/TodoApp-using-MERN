@@ -20,6 +20,12 @@ const AuthProvider = ({ children }) => {
   }, []);
 
   const logIn = (newToken, newData) => {
+    console.log(
+      "Logging in with token:Authcontext",
+      newToken,
+      "and user data:",
+      newData
+    );
     localStorage.setItem(
       "user_data",
       JSON.stringify({ userToken: newToken, user: newData })

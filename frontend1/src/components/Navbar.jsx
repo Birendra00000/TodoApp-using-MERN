@@ -28,7 +28,7 @@ const Navbar = () => {
             type="search"
             name=""
             id=""
-            className="w-[400px] p-[6px] outline-none"
+            className="w-[400px] p-[6px] outline-none text-black"
           />
           <button className="bg-red-400 px-[6px] py-[6px] rounded-sm">
             <CiSearch className=" size-6 text-white" />

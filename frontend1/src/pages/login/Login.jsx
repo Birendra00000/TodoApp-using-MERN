@@ -1,7 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { Link, redirect } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [data, setData] = useState({
@@ -10,7 +9,6 @@ const Login = () => {
     password: "",
   });
   const [error, setError] = useState("");
-  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setData({
@@ -27,7 +25,7 @@ const Login = () => {
         data
       );
       if (response) {
-        return navigate("/");
+        return redirect("/pages/create");
       }
       console.log(response);
     } catch (error) {

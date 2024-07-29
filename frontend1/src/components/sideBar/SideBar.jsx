@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { MdDashboard } from "react-icons/md";
 import UserProfile from "../userProfile/UserProfile";
 import { FaExclamation } from "react-icons/fa";
@@ -8,8 +8,19 @@ import { IoIosSettings } from "react-icons/io";
 import { IoHelp } from "react-icons/io5";
 import { MdLogout } from "react-icons/md";
 import { Link } from "react-router-dom";
+import { useAuth } from "../../Context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 const SideBar = () => {
+  // const { isAuthenticated } = useAuth();
+  // const navigate = useNavigate();
+
+  // useEffect(() => {
+  //   if (!isAuthenticated) {
+  //     return navigate("/login");
+  //   }
+  // });
+
   return (
     <div className=" flex  justify-start z-[-10] mt-[22%]">
       <div className="bg-[#f97878]  w-[350px] rounded-md h-[600px]">
