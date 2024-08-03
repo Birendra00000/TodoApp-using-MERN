@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   BrowserRouter as Router,
   Routes,
@@ -17,6 +17,7 @@ import UserTask from "./pages/myTask/UserTask";
 import VitalTask from "./pages/vitalTask/VitalTask";
 import MainContext from "./Context/MainContext";
 import ProtectedRoute from "./Context/ProtectedRoute";
+import TaskCategories from "./pages/taskCategories/TaskCategories";
 const App = () => {
   return (
     <Router>
@@ -28,7 +29,7 @@ const App = () => {
           "
           >
             <div>
-              <ProtectedRoute element={<SideBar />} />{" "}
+              <SideBar />
             </div>
             <div className="w-full h-full">
               <Routes>
@@ -47,9 +48,12 @@ const App = () => {
                 <Route
                   path="/vitaltask"
                   element={<ProtectedRoute element={<VitalTask />} />}
+                />{" "}
+                <Route
+                  path="/taskcategories"
+                  element={<ProtectedRoute element={<TaskCategories />} />}
                 />
                 <Route path="/login" element={<Login />} />
-
                 <Route path="/register" element={<Register />} />
               </Routes>
             </div>

@@ -23,7 +23,7 @@ const SideBar = () => {
 
   return (
     <div className=" flex  justify-start z-[-10] mt-[22%]">
-      <div className="bg-[#f97878]  w-[350px] rounded-md h-[600px]">
+      <div className="bg-[#f97878]  w-[350px] rounded-md h-[620px] flex flex-col justify-between ">
         <div>
           <UserProfile />
           <div className="flex flex-col gap-2 ml-[6%]  text-white">
@@ -45,10 +45,12 @@ const SideBar = () => {
                 <p className="mb-0 font-medium">My task</p>
               </div>
             </Link>{" "}
-            <div className="flex gap-2 items-center p-2 hover:bg-white hover:text-red-400 w-[285px] hover:rounded-md">
-              <AiOutlineBars />
-              <p className="mb-0 font-medium"> Task Categories</p>
-            </div>{" "}
+            <Link to="/taskcategories" className="no-underline text-white ">
+              <div className="flex gap-2 items-center p-2 hover:bg-white hover:text-red-400 w-[285px] hover:rounded-md">
+                <AiOutlineBars />
+                <p className="mb-0 font-medium"> Task Categories</p>
+              </div>{" "}
+            </Link>
             <div className="flex gap-2 items-center p-2 hover:bg-white hover:text-red-400 w-[285px] hover:rounded-md">
               <IoIosSettings />
               <p className="mb-0 font-medium">Settings</p>
@@ -59,7 +61,7 @@ const SideBar = () => {
             </div>
           </div>
         </div>
-        <div className="flex gap-2 items-center p-2 hover:bg-white hover:text-red-400 w-[285px] hover:rounded-md">
+        <div className="flex gap-2 items-center p-2 hover:bg-white hover:text-red-400 w-[285px] hover:rounded-md text-white">
           <MdLogout />
           <p className="mb-0 font-medium">LogOut</p>
         </div>

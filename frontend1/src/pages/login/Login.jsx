@@ -34,45 +34,39 @@ const Login = () => {
   };
 
   return (
-    <div className="h-screen w-full flex justify-center items-center bg-blue-100">
+    <div className="h-screen w-full flex justify-center items-center">
       <form
-        className="h-[330px] bg-white w-[310px] rounded-lg"
+        className="h-[330px]  shadow-md bg-white w-[350px] rounded-lg"
         onSubmit={(e) => submitData(e)}
       >
         <span className="h-[20%] items-center justify-center  flex text-[25px] text-skyblue">
           <h5>Sign In</h5>
         </span>
         <div className="flex flex-col justify-center items-center h-[60%] gap-[10%]">
-          <div></div>
-          <div>
-            {" "}
-            <input
-              type="email"
-              placeholder="E-mail"
-              className="border rounded-lg p-1"
-              name="email"
-              value={data.email}
-              onChange={handleChange}
-            />
-          </div>
-          <div>
-            {" "}
-            <input
-              type="password"
-              placeholder="Password"
-              className="border rounded-lg p-1"
-              name="password"
-              value={data.password}
-              onChange={handleChange}
-            />
-          </div>
+          <div></div>{" "}
+          <input
+            type="email"
+            placeholder="E-mail"
+            className="border rounded-lg p-2 mt-1 w-[80%]"
+            name="email"
+            value={data.email}
+            onChange={handleChange}
+          />{" "}
+          <input
+            type="password"
+            placeholder="Password"
+            className="border rounded-lg p-2 mt-1 w-[80%]"
+            name="password"
+            value={data.password}
+            onChange={handleChange}
+          />
           {error && (
             <>
               <div className="flec justify-start text-red-700">{error}</div>
             </>
           )}
           <div className=" items-center justify-center  flex text-lg w-[100%]">
-            <button className="bg-sky-500 text-white w-[60%] p-1 rounded-lg">
+            <button className="bg-sky-500 text-white w-[30%] p-1 rounded-lg">
               Sign In
             </button>
           </div>

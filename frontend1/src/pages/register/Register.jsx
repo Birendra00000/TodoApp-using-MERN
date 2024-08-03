@@ -56,9 +56,9 @@ const TodoRegister = () => {
   };
 
   return (
-    <div className="h-screen w-full flex justify-center items-center bg-blue-200">
+    <div className="h-screen w-full flex justify-center items-center ">
       <form
-        className="h-[360px] bg-white w-[310px] rounded-lg"
+        className="h-[360px] bg-white w-[350px] shadow-md rounded-lg"
         onSubmit={(e) => submitData(e)}
       >
         <span className="h-[20%] items-center justify-center  flex text-[25px] text-skyblue">
@@ -66,42 +66,34 @@ const TodoRegister = () => {
         </span>
         {error}
         <div className="flex flex-col justify-center items-center h-[50%] gap-[10%]">
-          <div>
-            <input
-              type="text"
-              placeholder="Name"
-              name="name"
-              value={data.name}
-              className="border rounded-lg p-4 cursor-pointer"
-              onChange={handleChange}
-            />
-          </div>{" "}
-          <div>
-            {" "}
-            <input
-              type="email"
-              id="email"
-              name="email"
-              placeholder="E-mail"
-              value={data.email}
-              className="border rounded-lg p-2 w-full mt-1"
-              onChange={handleChange}
-            />
-          </div>
-          <div>
-            {" "}
-            <input
-              type="password"
-              placeholder="Password"
-              className="border rounded-lg p-1"
-              name="password"
-              value={data.password}
-              onChange={handleChange}
-            />
-          </div>
+          <input
+            type="text"
+            placeholder="Name"
+            name="name"
+            value={data.name}
+            className="border rounded-lg p-2 cursor-pointer w-[80%]"
+            onChange={handleChange}
+          />{" "}
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="E-mail"
+            value={data.email}
+            className="border rounded-lg p-2 mt-1 w-[80%]"
+            onChange={handleChange}
+          />{" "}
+          <input
+            type="password"
+            placeholder="Password"
+            className="border rounded-lg p-2 mt-1 w-[80%]"
+            name="password"
+            value={data.password}
+            onChange={handleChange}
+          />
         </div>
         <div className="h-[30%] items-center justify-center  flex text-lg w-[100%] flex-col gap-[7%]">
-          <button className="bg-sky-500 text-white w-[60%] p-1 rounded-lg">
+          <button className="bg-sky-500 text-white w-[30%] p-1 rounded-lg">
             Sign Up
           </button>
           <Link to="/login">

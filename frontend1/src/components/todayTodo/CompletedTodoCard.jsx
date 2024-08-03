@@ -9,7 +9,7 @@ const CompletedTodoCard = () => {
 
   return (
     <div className="w-full flex justify-center h-full items-center">
-      <div className="w-[90%] h-[90%]">
+      <div className="w-[90%] h-[90%] overflow-y-auto">
         <div className="flex gap-3 items-center">
           <TbCalendarTime size={25} className="text-gray-500" />
           <span className="text-red-600">Completed Task</span>
