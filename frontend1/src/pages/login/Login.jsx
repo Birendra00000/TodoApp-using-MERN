@@ -1,14 +1,21 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { Link, redirect } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../../Context/AuthContext";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Login = () => {
+  const { logIn } = useAuth();
+  const [error, setError] = useState(null);
+
   const [data, setData] = useState({
     name: "",
     email: "",
     password: "",
   });
-  const [error, setError] = useState("");
+  // console.log("data", data);
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setData({
@@ -17,19 +24,32 @@ const Login = () => {
     });
   };
 
+  const notifySuccess = (successmessage) => toast.success(successmessage);
+
+  const notifyError = (errorMessage) => toast.error(errorMessage);
+
   const submitData = async (e) => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:4000/api/login",
+        "http://localhost:4000/api/userlogin",
         data
       );
-      if (response) {
-        return redirect("/pages/create");
+      console.log(JSON.stringify(response.data.data));
+      console.log("response", response.data.user);
+      if (response.status === 200) {
+        const newData = response.data.user;
+        const newToken = response.data.token;
+
+        logIn(newToken, newData);
+        notifySuccess(response.data.message);
+
+        return navigate("/");
+      } else {
+        setError(response.data.message);
       }
-      console.log(response);
     } catch (error) {
-      setError(error.response.data.message);
+      notifyError(error.response.data.message);
     }
   };
 

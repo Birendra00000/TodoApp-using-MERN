@@ -71,7 +71,7 @@ const TodoRegister = () => {
             placeholder="Name"
             name="name"
             value={data.name}
-            className="border rounded-lg p-2 cursor-pointer w-[80%]"
+            className="border rounded-lg p-2  w-[80%]"
             onChange={handleChange}
           />{" "}
           <input
