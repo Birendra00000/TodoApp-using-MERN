@@ -5,7 +5,7 @@ import TaskTablepriority from "../../components/taskCategories/TaskTablepriority
 
 const TaskCategories = () => {
   return (
-    <div className="mt-[6%] w-full h-full ">
+    <div className="mt-[8%] w-full h-full ">
       {" "}
       <div className="w-[95%] flex   justify-center   border border-gray-500 h-[600px] rounded-md">
         {" "}

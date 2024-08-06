@@ -54,14 +54,18 @@ exports.updateTodo = async (req, res) => {
   try {
     const todoId = req.params.id;
     const { title, description, date, priority } = req.body;
-    console.log(req.body);
+    console.log(req.body.title);
+    console.log(req.body.title);
+    console.log(req.body.description);
+    console.log(req.body.date);
+    console.log(req.body.priority);
 
-    // Validate required fields
-    if (!title || !description || !date || !priority) {
-      return res.status(400).json({
-        message: "Please fill out the form completely",
-      });
-    }
+    //  Validate required fields
+    // if (!title || !description || !date || !priority) {
+    //   return res.status(400).json({
+    //     message: "Please fill out the form completely",
+    //   });
+    // }
 
     const todoExist = await todoItems.findById(todoId);
 
@@ -89,15 +93,18 @@ exports.updateTodo = async (req, res) => {
 
     const todoUpdate = await todoItems.findByIdAndUpdate(
       todoId, //for taking todo unique id
+
       {
-        title,
-        description,
-        date,
-        priority,
-        todoImage:
-          req.file && req.file.filename
-            ? process.env.URL + req.file.filename
-            : oldTodoImage,
+        $set: {
+          todoTitle: title,
+          todoDescription: description,
+          todoDate: date,
+          todoPriority: priority,
+          todoImage:
+            req.file && req.file.filename
+              ? process.env.URL + req.file.filename
+              : oldTodoImage,
+        },
       },
       { new: true } //The { new: true } option ensures that the updated document is returned.
     );

@@ -18,6 +18,7 @@ import VitalTask from "./pages/vitalTask/VitalTask";
 import MainContext from "./Context/MainContext";
 import ProtectedRoute from "./Context/ProtectedRoute";
 import TaskCategories from "./pages/taskCategories/TaskCategories";
+import SingleTask from "./pages/SingleTask/SingleTask";
 const App = () => {
   return (
     <Router>
@@ -52,6 +53,10 @@ const App = () => {
                 <Route
                   path="/taskcategories"
                   element={<ProtectedRoute element={<TaskCategories />} />}
+                />{" "}
+                <Route
+                  path="/:id"
+                  element={<ProtectedRoute element={<SingleTask />} />}
                 />
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />

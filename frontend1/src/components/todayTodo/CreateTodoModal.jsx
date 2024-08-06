@@ -76,7 +76,7 @@ const CreateTodoModal = ({ handleClick }) => {
           <div className="flex w-[85%] justify-between items-center py-3">
             <span>
               <p className="font-bold mb-0 bottom">Add New Task</p>
-              <span className="border border-red-400 flex w-[85%]"></span>
+              <span className="h-[2px] bg-orange-600 flex w-[85%]"></span>
             </span>
             <span>
               <p
@@ -85,12 +85,12 @@ const CreateTodoModal = ({ handleClick }) => {
               >
                 Go Back
               </p>{" "}
-              <span className="border border-rose-400  flex w-[85%]"></span>
+              <span className="h-[2px] bg-orange-600 flex w-[85%]"></span>
             </span>
           </div>
         </div>
         <div className="flex w-full justify-center">
-          <div className="flex w-[85%] h-[50%] justify-center items-center border border-gray-600">
+          <div className="flex w-[85%] h-[55%] justify-center items-center border border-gray-600 rounded-md">
             {" "}
             <div className=" second--container w-[95%] h-full mt-[2%]  flex flex-col gap-3">
               <div className="text-normal font-semibold flex flex-col gap-1">
@@ -157,9 +157,9 @@ const CreateTodoModal = ({ handleClick }) => {
                   </span>{" "}
                 </span>
               </div>
-              <div className=" flex items-center gap-2 mb-[1rem]">
+              <div className=" flex items-center gap-2 ">
                 <span>
-                  <p className="font-semibold">Task Discribtion</p>
+                  <p className="font-semibold mb-2">Task Discribtion</p>
 
                   <textarea
                     id=""
@@ -172,9 +172,11 @@ const CreateTodoModal = ({ handleClick }) => {
                     onChange={handleChange}
                   />
                 </span>
-                <span>
+                <span className="w-full flex text-center flex-col">
                   {" "}
-                  <label htmlFor="">Upload Image</label>
+                  <label htmlFor="" className="font-semibold mb-2">
+                    Upload Image
+                  </label>
                   <span className="">
                     <input
                       type="file"

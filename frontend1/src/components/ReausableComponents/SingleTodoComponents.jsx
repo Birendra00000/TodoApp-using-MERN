@@ -4,7 +4,6 @@ import TodoDelete from "./delete/TodoDelete";
 import UpdateTodo from "./update/UpdateTodo";
 
 const SingleTodoComponents = ({ data }) => {
-  console.log("dataaaa", data);
   return (
     <>
       <div className="w-full flex justify-center h-full items-center">

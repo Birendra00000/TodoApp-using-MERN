@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import TodoContext from "../../Context/TodoContext";
-import TodoStatus from "../ReausableComponents/TodoStatus";
 import Button from "../ReausableComponents/Button";
 import "./table.css";
 

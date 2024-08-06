@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
-import CreateModal from "./createModal";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { LuCalendarDays } from "react-icons/lu";
 import { HiOutlineBellAlert } from "react-icons/hi2";
 import { CiSearch } from "react-icons/ci";
 import TodoContext from "../Context/TodoContext";
+
 const Navbar = () => {
   const TodoItems = useContext(TodoContext);
 

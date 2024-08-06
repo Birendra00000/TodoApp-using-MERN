@@ -16,7 +16,7 @@ const router = require("express").Router();
 router.route("/todo").post(upload.single("todoImage"), createTodo).get(getTodo);
 router
   .route("/todo/:id")
-  .patch(updateTodo)
+  .put(upload.single("todoImage"), updateTodo)
   .delete(deleteTodo)
   .get(getSingleTodo);
 module.exports = router;
