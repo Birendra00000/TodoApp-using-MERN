@@ -3,35 +3,39 @@ import TodoStatus from "./TodoStatus";
 
 const CardContainer = ({ todo }) => {
   return (
-    <div className="w-[90%]  h-[200px] border border-gray-500 rounded-lg ">
+    <div className="w-[90%] h-[150px] md:h-[200px] border border-gray-500 rounded-lg ">
       <div className="w-full grid grid-cols-8 gap-2 items-center h-[80%]">
         {" "}
         <TodoStatusColor date={todo.todoDate} className="col-span-1" />
         <span className="flex flex-col col-span-4 pt-[3%] h-full">
-          <span className="font-bold">{todo.todoTitle}</span>
+          <span className="font-bold text-[12px] md:text-[16px] ">
+            {todo.todoTitle}
+          </span>
           <span className="text-gray-500 overflow-hidden  h-[125px]">
-            <p className="mb-0 custom-truncate">{todo.todoDescription}...</p>
+            <p className="mb-0 custom-truncate text-[12px] md:text-[16px]">
+              {todo.todoDescription}...
+            </p>
           </span>
         </span>
-        <span className="col-span-3 flex items-end justify-center h-[120px]">
+        <span className="col-span-3 flex mt-2 md:mt-0 md:items-end justify-center h-[100px] md:h-[120px]">
           <img
             src={todo.todoImage}
             alt=""
-            className="w-[120px] h-full object-cover rounded-lg"
+            className="w-[90px] md:w-[120px] h-full object-cover rounded-lg"
           />
         </span>
       </div>
       <div className="w-full flex justify-center h-[20%] items-center">
         <div className="w-[80%] flex items-center gap-2">
           <span className="flex items-center">
-            <p className="mb-0 text-[10px]">Priority:</p>
-            <p className="mb-0 text-[10px] text-blue-500 font-bold">
+            <p className="mb-0 text-[8px] md:text-[10px] ">Priority:</p>
+            <p className="mb-0  text-[8px] md:text-[10px] text-blue-500 font-bold">
               {todo.todoPriority}
             </p>
           </span>
           <span className="flex items-center">
-            <p className="mb-0 text-[10px]">Status:</p>
-            <p className="mb-0 text-[10px]">
+            <p className="mb-0  text-[8px] md:text-[10px]">Status:</p>
+            <p className="mb-0  text-[8px] md:text-[10px]">
               <TodoStatus date={todo.todoDate} />
             </p>
           </span>

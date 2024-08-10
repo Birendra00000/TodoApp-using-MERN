@@ -8,18 +8,22 @@ const UserProfile = () => {
   const userName = userData?.userName || "Guest";
   const userEmail = userData?.userEmail || "Not provided";
   return (
-    <div className="relative top-[-60px] text-white">
+    <div className="relative top-[-30px] md:top-[-60px] text-white">
       {" "}
       <img
         src="profile.jpg"
         alt=""
-        className="h-[110px] w-[110px] rounded-full relative left-[120px]"
+        className="h-[50px] w-[50px] md:h-[110px] md:w-[110px] rounded-full relative left-[40px] md:left-[120px]"
       />
       <div className="flex justify-center">
-        <p className="mb-0">{userName}</p>
+        <p className="mb-0 text-[10px] md:text-[16px] lg:text-[16px]">
+          {userName}
+        </p>
       </div>
       <div className="flex justify-center text-sm">
-        <p className="mb-0">{userEmail}</p>
+        <p className="mb-0 text-[10px] md:text-[16px] lg:text-[16px]">
+          {userEmail}
+        </p>
       </div>
     </div>
   );

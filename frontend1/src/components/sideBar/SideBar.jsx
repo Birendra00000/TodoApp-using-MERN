@@ -14,42 +14,55 @@ const SideBar = () => {
   const { logOut } = useAuth();
 
   return (
-    <div className=" flex  justify-start z-[-10] mt-[22%]">
-      <div className="bg-[#f97878]  w-[350px] rounded-t-md h-[620px] flex flex-col justify-between ">
-        <div>
+    <div className=" flex  justify-start z-[-10] mt-[22%] w-full">
+      <div className="bg-[#f97878] w-full  md:w-[350px] lg:w-[350px] rounded-t-md h-[620px] flex flex-col justify-between ">
+        <div className="w-full">
           <UserProfile />
           <div className="flex flex-col gap-2 ml-[6%]  text-white">
             <Link to="/" className=" no-underline text-white">
               <div className="  flex gap-2 items-center p-2 hover:text-red-400 hover:bg-white  w-[285px] hover:rounded-md ">
                 <MdDashboard />
-                <p className="mb-0 font-medium ">DashBoard</p>
+                <p className="mb-0 font-medium text-[10px] md:text-[16px] lg:text-[16px]">
+                  DashBoard
+                </p>
               </div>{" "}
             </Link>
             <Link to="/vitaltask" className=" no-underline text-white">
               <div className="flex gap-2 items-center p-2 hover:bg-white hover:text-red-400 w-[285px] hover:rounded-md">
                 <FaExclamation />
-                <p className="mb-0 font-medium">Vital Task</p>
+                <p className="mb-0 font-medium text-[10px] md:text-[16px] lg:text-[16px]">
+                  Vital Task
+                </p>
               </div>{" "}
             </Link>
             <Link to="/usertask" className="no-underline text-white ">
               <div className="flex gap-2 items-center p-2 hover:bg-white hover:text-red-400 w-[285px] hover:rounded-md">
                 <FaRegCalendarCheck />
-                <p className="mb-0 font-medium">My task</p>
+                <p className="mb-0 font-medium text-[10px] md:text-[16px] lg:text-[16px]">
+                  My task
+                </p>
               </div>
             </Link>{" "}
             <Link to="/taskcategories" className="no-underline text-white ">
               <div className="flex gap-2 items-center p-2 hover:bg-white hover:text-red-400 w-[285px] hover:rounded-md cursor-pointer">
                 <AiOutlineBars />
-                <p className="mb-0 font-medium"> Task Categories</p>
+                <p className="mb-0 font-medium text-[10px] md:text-[16px] lg:text-[16px]">
+                  {" "}
+                  Task Categories
+                </p>
               </div>{" "}
             </Link>
             <div className="flex gap-2 items-center p-2 hover:bg-white hover:text-red-400 w-[285px] hover:rounded-md cursor-pointer">
               <IoIosSettings />
-              <p className="mb-0 font-medium">Settings</p>
+              <p className="mb-0 font-medium text-[10px] md:text-[16px] lg:text-[16px]">
+                Settings
+              </p>
             </div>{" "}
             <div className="flex gap-2 items-center p-2 hover:bg-white hover:text-red-400 cursor-pointer w-[285px] hover:rounded-md">
               <IoHelp />
-              <p className="mb-0 font-medium">Help</p>
+              <p className="mb-0 font-medium text-[10px] md:text-[16px] lg:text-[16px]">
+                Help
+              </p>
             </div>
           </div>
         </div>
@@ -58,7 +71,9 @@ const SideBar = () => {
           onClick={logOut}
         >
           <MdLogout />
-          <p className="mb-0 font-medium">LogOut</p>
+          <p className="mb-0 font-medium text-[10px] md:text-[16px] lg:text-[16px]">
+            LogOut
+          </p>
         </div>
       </div>
     </div>

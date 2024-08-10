@@ -71,7 +71,7 @@ const Navbar = () => {
             className={`md:grid md:grid-cols-2 md:col-span-2  p-2 w-auto 
            md:p-0 lg:p-0  ${
              showNavBar
-               ? "show bg-[#00000073]  w-full col-span-3 left-[-19px] absolute top-0 h-[100vh] flex flex-col gap-5"
+               ? "show bg-[#f4f4dd]  w-full col-span-3 right-[-20px] absolute shadow-lg top-0 h-[100vh] flex flex-col gap-5"
                : "hidden"
            }`}
           >
@@ -88,13 +88,13 @@ const Navbar = () => {
                 id=""
                 value={search}
                 onChange={handleSearch}
-                className="w-[280px]  md:w-[400px] lg:w-[400px] p-[6px] outline-none text-black"
+                className="w-[230px]  md:w-[400px] lg:w-[400px] p-[6px] outline-none text-black"
               />
               <button className="bg-red-400 px-[6px] py-[6px] rounded-sm">
                 <CiSearch className=" size-6 text-white" />
               </button>
             </div>
-            <div className="flex  items-center justify-around flex-col md:flex-row lg:flex-row">
+            <div className="flex  items-center justify-around flex-col md:flex-row lg:flex-row gap-5">
               <button className="bg-red-400 p-1 rounded-xl">
                 <HiOutlineBellAlert className="size-6 text-white" />{" "}
               </button>

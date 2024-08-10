@@ -26,10 +26,10 @@ const App = () => {
         <div>
           <Navbar />
           <div
-            className="flex gap-10 
+            className="flex gap-2 md:gap-10 
           "
           >
-            <div>
+            <div className="w-[30%]">
               <SideBar />
             </div>
             <div className="w-full h-full">

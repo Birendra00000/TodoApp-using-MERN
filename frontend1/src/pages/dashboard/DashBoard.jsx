@@ -6,12 +6,13 @@ import CompletedTodoCard from "../../components/todayTodo/CompletedTodoCard";
 const DashBoard = () => {
   return (
     <div className="mt-[6%] w-full h-full ">
-      <h3>Welcome back, Bibek</h3>
-      <div className="w-[95%] flex justify-center items-center border border-gray-500 h-[600px]">
-        <div className="grid grid-cols-2 grid-rows-2 gap-3 w-[95%] h-[95%]">
+      <h3 className="">Welcome back, Bibek</h3>
+      <div className="w-[95%] flex justify-center items-center border border-gray-500  h-[600px] overflow-auto">
+        <div className="grid md:grid-cols-2 md:grid-rows-2 gap-3 w-[95%] h-[95%]">
           <div className="shadow-lg row-span-2">
             <TodoToday />
           </div>
+
           <div className="shadow-lg ">
             <TodoStatus />
           </div>
