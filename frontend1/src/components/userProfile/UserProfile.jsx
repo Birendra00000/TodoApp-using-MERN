@@ -13,7 +13,7 @@ const UserProfile = () => {
       <img
         src="profile.jpg"
         alt=""
-        className="h-[50px] w-[50px] md:h-[110px] md:w-[110px] rounded-full relative left-[40px] md:left-[120px]"
+        className="h-[50px] w-[50px] md:h-[110px] md:w-[110px] rounded-full relative left-[36%] md:left-[35%]"
       />
       <div className="flex justify-center">
         <p className="mb-0 text-[10px] md:text-[16px] lg:text-[16px]">

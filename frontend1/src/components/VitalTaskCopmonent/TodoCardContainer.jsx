@@ -19,13 +19,13 @@ const TodoCardContainer = () => {
   };
   return (
     <div className="mt-[8%] w-[95%] h-full">
-      <div className="grid grid-cols-2 w-full  justify-center  h-[600px] gap-4">
+      <div className="remove--scroller grid grid-cols-2 w-full  justify-center  h-[600px] gap-x-1 lg:gap-4 overflow-y-auto">
         <div className="shadow-md border border-gray-500">
-          <div className="w-full flex justify-center items-center h-[95vh] overflow-auto">
+          <div className="w-full flex justify-center items-center h-[95vh]">
             {" "}
             <div className="w-[90%] h-[95%]">
               <HeaderTask title={"Vital Task"} />
-              <div className="w-full  flex justify-center mt-2 flex-col items-center mb-[3%] gap-3">
+              <div className="w-full  flex justify-center mt-2 flex-col items-center mb-[3%]  gap-3">
                 {TodoItems &&
                   TodoItems.map((todo, index) => {
                     return (

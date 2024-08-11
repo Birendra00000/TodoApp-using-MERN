@@ -49,7 +49,7 @@ const TodoDelete = ({ id }) => {
     <>
       <button
         className="px-1 py-2 bg-red-400 text-white 
-            w-[50px] flex justify-center text-[25px] rounded-md items-center"
+            w-[50px] flex justify-center text-[18px] lg:text-[25px] rounded-md items-center"
         onClick={() => setShow(!show)}
       >
         <MdDelete />
@@ -57,7 +57,7 @@ const TodoDelete = ({ id }) => {
       {show && (
         <>
           <div className="w-full flex justify-center items-center bg-[#7973733d] h-full absolute top-0 left-0">
-            <div className="w-[350px] flex gap-4  h-[170px]  rounded-md flex-col text-black bg-white ">
+            <div className="w-[270px] h-[140px] lg:w-[350px] flex gap-4  lg:h-[170px]  rounded-md flex-col text-black bg-white ">
               {" "}
               <div
                 className="flex justify-end px-2 pt-2 cursor-pointer"
@@ -65,13 +65,13 @@ const TodoDelete = ({ id }) => {
               >
                 <RxCross2 size={25} />
               </div>
-              <div className="flex justify-center">
+              <div className="flex justify-center text-[12px] lg:text-[16px]">
                 Are You sure You want to delete the todo?
               </div>
               <div className="flex justify-end ">
                 <button
                   onClick={deleteTodo}
-                  className="bg-red-400 p-2 mr-[6%] rounded-lg text-white"
+                  className="bg-red-400 p-2  text-[12px] lg:text-[16px] mr-[6%] rounded-lg text-white"
                 >
                   Yes
                 </button>

@@ -8,7 +8,7 @@ const SingleTodoComponents = ({ data }) => {
     <>
       <div className="w-full flex justify-center h-full items-center">
         <div className="w-[90%] h-[90%] flex flex-col gap-[5%] ">
-          <div className="flex gap-3 items-center ">
+          <div className="flex flex-col   md:flex-row md:gap-2 lg:gap-3 items-center ">
             <span className="">
               <img
                 src={data.todoImage}
@@ -18,23 +18,25 @@ const SingleTodoComponents = ({ data }) => {
             </span>
             <div className=" flex flex-col gap-3  ">
               <span>
-                <p className="mb-0 font-bold text-[14px]">{data.todoTitle}</p>
+                <p className="mb-0 font-bold text-[12px] md:text-[16px]">
+                  {data.todoTitle}
+                </p>
               </span>
               <span className="flex gap-1">
                 {" "}
-                <p className="mb-0 text-[12px]">Priority:</p>
-                <p className="mb-0 text-[12px]">
+                <p className="mb-0 text-[9px] md:text-[12px]">Priority:</p>
+                <p className="mb-0 text-[9px] md:text-[12px]">
                   <TodoPriorityColor TodoPriority={data.todoPriority} />
                 </p>
               </span>
               <span className="flex gap-1">
-                <p className="mb-0 text-[12px]">Status:</p>
-                <p className="mb-0 text-[12px]">
+                <p className="mb-0 text-[9px] md:text-[12px]">Status:</p>
+                <p className="mb-0 text-[9px] md:text-[12px]">
                   <TodoStatus />
                 </p>
               </span>
               <span className="flex gap-1 text-gray-300">
-                <p className="mb-0 text-[12px] ">Created On:</p>
+                <p className="mb-0 text-[9px] md:text-[12px] ">Created On:</p>
                 <p></p>
               </span>
             </div>
@@ -45,8 +47,10 @@ const SingleTodoComponents = ({ data }) => {
             <span className="flex gap-1">
               {" "}
               <span className="mb-0 text-4 ">
-                <span className="font-semibold">Task Title:</span>
-                <span className="mb-0 text-4 text-gray-500">
+                <span className="font-semibold text-[12px] md:text-[16px]">
+                  Task Title:
+                </span>
+                <span className="mb-0 text-4 text-gray-500 text-[12px] md:text-[16px]">
                   {data.todoTitle}
                 </span>
               </span>
@@ -54,8 +58,10 @@ const SingleTodoComponents = ({ data }) => {
             <span className="flex gap-1">
               {" "}
               <span className="mb-0 text-4 ">
-                <span className="font-semibold ">Task Description:</span>
-                <span className="mb-0 text-4 text-gray-500">
+                <span className="font-semibold text-[12px] md:text-[16px]">
+                  Task Description:
+                </span>
+                <span className="mb-0 text-4 text-gray-500 text-[12px] md:text-[16px]">
                   {data.todoDescription}
                 </span>
               </span>

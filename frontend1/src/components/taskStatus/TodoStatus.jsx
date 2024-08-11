@@ -88,7 +88,7 @@ const TodoStatus = () => {
           </span>
         </div>
         <div className="flex justify-between items-center h-[90%]">
-          <div className="w-[33%] h-[120px] md:w-[100px] md:h-[150px] flex flex-col  gap-2  md:justify-between">
+          <div className="w-[33%] h-[120px] md:h-[150px] flex flex-col  gap-2  md:justify-between">
             <CircularProgressbar
               value={complete}
               text={`${complete}%`}
@@ -96,10 +96,12 @@ const TodoStatus = () => {
             />
             <span className="flex items-center justify-center">
               <span className="h-4 w-4 rounded-full border-2 bg-green-500 flex"></span>
-              <p className="mb-0 text-[10px] md:text-[16px]">Completed</p>
+              <p className="mb-0 text-[10px] sm:text-[11px] md:text-[11px] lg:text[16px]">
+                Completed
+              </p>
             </span>
           </div>
-          <div className="w-[33%] h-[120px] md:w-[100px] md:h-[150px]  flex flex-col gap-2  md:justify-between">
+          <div className="w-[33%] h-[120px] md:h-[150px]  flex flex-col gap-2  md:justify-between">
             <CircularProgressbar
               value={progress}
               text={`${progress}%`}
@@ -107,10 +109,12 @@ const TodoStatus = () => {
             />{" "}
             <span className="flex items-center justify-center">
               <span className="h-4 w-4 rounded-full border-2 bg-blue-500 flex"></span>
-              <p className="mb-0  text-[10px] md:text-[16px]">In Progress</p>
+              <p className="mb-0  text-[10px]  sm:text-[11px]  md:text-[11px] lg:text[16px]">
+                In Progress
+              </p>
             </span>
           </div>{" "}
-          <div className="w-[33%] h-[120px] md:w-[100px] md:h-[150px]  flex flex-col gap-2  md:justify-between">
+          <div className="w-[33%] h-[120px] md:h-[150px]  flex flex-col gap-2  md:justify-between">
             <CircularProgressbar
               value={notStarted}
               text={`${notStarted}%`}
@@ -122,7 +126,9 @@ const TodoStatus = () => {
             "
             >
               <span className="h-4 w-4 rounded-full border-2 bg-red-500 flex"></span>
-              <p className="mb-0  text-[10px] md:text-[16px]">Not Started</p>
+              <p className="mb-0  text-[10px]  sm:text-[11px]  md:text-[11px] lg:text[16px]">
+                Not Started
+              </p>
             </span>
           </div>
         </div>

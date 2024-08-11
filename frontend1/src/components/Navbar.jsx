@@ -76,7 +76,7 @@ const Navbar = () => {
            }`}
           >
             <span
-              className="text-black  lg:hidden md:hidden flex justify-end "
+              className="text-black  lg:hidden md:hidden flex justify-start "
               onClick={handleMobileResponsivnese}
             >
               <RxCross1 />
@@ -99,7 +99,7 @@ const Navbar = () => {
                 <HiOutlineBellAlert className="size-6 text-white" />{" "}
               </button>
               <div
-                className="bg-red-400 p-1 rounded-xl relative"
+                className="bg-red-400 p-1 rounded-xl cursor-pointer relative"
                 onClick={handleShowCalendar}
               >
                 <LuCalendarDays className=" size-6 text-white" />

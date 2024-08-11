@@ -54,12 +54,12 @@ const Login = () => {
   };
 
   return (
-    <div className="h-screen w-full flex justify-center items-center">
+    <div className="h-[600px] w-full flex justify-center items-center">
       <form
-        className="h-[330px]  shadow-md bg-white w-[350px] rounded-lg"
+        className="h-[330px]  shadow-md bg-white w-[90%] lg:w-[350px] rounded-lg"
         onSubmit={(e) => submitData(e)}
       >
-        <span className="h-[20%] items-center justify-center  flex text-[25px] text-skyblue">
+        <span className="h-[20%] items-center justify-center  flex  text-[25px] text-skyblue ">
           <h5>Sign In</h5>
         </span>
         <div className="flex flex-col justify-center items-center h-[60%] gap-[10%]">
@@ -67,7 +67,7 @@ const Login = () => {
           <input
             type="email"
             placeholder="E-mail"
-            className="border rounded-lg p-2 mt-1 w-[80%]"
+            className="border rounded-lg p-2 mt-1 w-[80%] text-[14px] lg:text-[16px]"
             name="email"
             value={data.email}
             onChange={handleChange}
@@ -75,24 +75,26 @@ const Login = () => {
           <input
             type="password"
             placeholder="Password"
-            className="border rounded-lg p-2 mt-1 w-[80%]"
+            className="border rounded-lg p-2 mt-1 w-[80%] text-[14px] lg:text-[16px]"
             name="password"
             value={data.password}
             onChange={handleChange}
           />
           {error && (
             <>
-              <div className="flec justify-start text-red-700">{error}</div>
+              <div className="flec justify-start text-red-700 text-[14px] lg:text-[16px]">
+                {error}
+              </div>
             </>
           )}
           <div className=" items-center justify-center  flex text-lg w-[100%]">
-            <button className="bg-sky-500 text-white w-[30%] p-1 rounded-lg">
+            <button className="bg-sky-500 text-white w-[30%] p-1 rounded-lg text-[14px] lg:text-[16px]">
               Sign In
             </button>
           </div>
         </div>
         <Link to="/register">
-          <div className="flex justify-center">
+          <div className="flex justify-center text-[14px] lg:text-[16px]">
             <p>or Get Registered</p>
           </div>
         </Link>

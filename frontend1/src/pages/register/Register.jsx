@@ -56,7 +56,7 @@ const TodoRegister = () => {
   };
 
   return (
-    <div className="h-screen w-full flex justify-center items-center ">
+    <div className="h-[600px] w-full flex justify-center items-center ">
       <form
         className="h-[360px] bg-white w-[350px] shadow-md rounded-lg"
         onSubmit={(e) => submitData(e)}
@@ -71,7 +71,7 @@ const TodoRegister = () => {
             placeholder="Name"
             name="name"
             value={data.name}
-            className="border rounded-lg p-2  w-[80%]"
+            className="border rounded-lg p-2  w-[80%] text-[14px] lg:text-[16px]"
             onChange={handleChange}
           />{" "}
           <input
@@ -80,24 +80,24 @@ const TodoRegister = () => {
             name="email"
             placeholder="E-mail"
             value={data.email}
-            className="border rounded-lg p-2 mt-1 w-[80%]"
+            className="border rounded-lg p-2 mt-1 w-[80%] text-[14px] lg:text-[16px]"
             onChange={handleChange}
           />{" "}
           <input
             type="password"
             placeholder="Password"
-            className="border rounded-lg p-2 mt-1 w-[80%]"
+            className="border rounded-lg p-2 mt-1 w-[80%] text-[14px] lg:text-[16px]"
             name="password"
             value={data.password}
             onChange={handleChange}
           />
         </div>
         <div className="h-[30%] items-center justify-center  flex text-lg w-[100%] flex-col gap-[7%]">
-          <button className="bg-sky-500 text-white w-[30%] p-1 rounded-lg">
+          <button className="bg-sky-500 text-white w-[30%] p-1 rounded-lg text-[14px] lg:text-[16px]">
             Sign Up
           </button>
           <Link to="/login">
-            <div className="flex justify-center">
+            <div className="flex justify-center text-[14px] lg:text-[16px]">
               <p>or Get SignIn</p>
             </div>
           </Link>

@@ -26,7 +26,7 @@ const CardContainer = ({ todo }) => {
         </span>
       </div>
       <div className="w-full flex justify-center h-[20%] items-center">
-        <div className="w-[80%] flex items-center gap-2">
+        <div className="w-[80%] flex items-center gap-2 overflow-x-auto">
           <span className="flex items-center">
             <p className="mb-0 text-[8px] md:text-[10px] ">Priority:</p>
             <p className="mb-0  text-[8px] md:text-[10px] text-blue-500 font-bold">
@@ -40,8 +40,8 @@ const CardContainer = ({ todo }) => {
             </p>
           </span>
           <span className="flex items-center">
-            <p className="mb-0 text-[10px]">Created On:</p>
-            <p className="mb-0 text-[10px]"></p>
+            <p className="mb-0 text-[8px] md:text-[10px]">Created On:</p>
+            <p className="mb-0 text-[8px] md:text-[10px]"></p>
           </span>
         </div>
       </div>

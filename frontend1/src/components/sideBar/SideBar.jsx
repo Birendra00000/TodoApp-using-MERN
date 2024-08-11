@@ -15,7 +15,7 @@ const SideBar = () => {
 
   return (
     <div className=" flex  justify-start z-[-10] mt-[22%] w-full">
-      <div className="bg-[#f97878] w-full  md:w-[350px] lg:w-[350px] rounded-t-md h-[620px] flex flex-col justify-between ">
+      <div className="bg-[#f97878] w-full   lg:w-[350px] rounded-t-md h-[620px] flex flex-col justify-between ">
         <div className="w-full">
           <UserProfile />
           <div className="flex flex-col gap-2 ml-[6%]  text-white">
