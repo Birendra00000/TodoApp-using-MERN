@@ -35,7 +35,7 @@ const Create = () => {
     try {
       if (datas.title.length < 150 && datas.description.length < 500) {
         const response = await axios.post(
-          "http://localhost:4000/api/todo",
+          "https://todo-backend-9bt4.onrender.com/api/todo",
           datas
         );
         notifySuccess(response.data.message);

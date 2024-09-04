@@ -30,7 +30,7 @@ const TodoDelete = ({ id }) => {
   const deleteTodo = async () => {
     try {
       const response = await axios.delete(
-        `http://localhost:4000/api/todo/${id}`
+        `https://todo-backend-9bt4.onrender.com/api/todo/${id}`
       );
       // console.log(response.data.message);
       notifySuccess(response.data.message);

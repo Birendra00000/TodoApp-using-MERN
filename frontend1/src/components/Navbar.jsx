@@ -34,7 +34,7 @@ const Navbar = () => {
         return;
       }
       const response = await axios.get(
-        `http://localhost:4000/api/search?title=${encodeURIComponent(
+        `https://todo-backend-9bt4.onrender.com/api/search?title=${encodeURIComponent(
           e.target.value
         )}`
       );

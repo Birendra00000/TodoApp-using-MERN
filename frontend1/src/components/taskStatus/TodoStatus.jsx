@@ -12,7 +12,9 @@ const TodoStatus = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:4000/api/todo");
+        const response = await axios.get(
+          "https://todo-backend-9bt4.onrender.com/api/todo"
+        );
         setTodos(response.data.data); // Assuming response structure has a data array
       } catch (error) {
         console.error("Error fetching todos:", error);

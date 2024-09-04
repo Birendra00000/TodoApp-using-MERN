@@ -71,7 +71,7 @@ const UpdateTodo = ({ data, id }) => {
       }
 
       const response = await axios.put(
-        `http://localhost:4000/api/todo/${id}`,
+        `https://todo-backend-9bt4.onrender.com/api/todo/${id}`,
         formData,
         {
           headers: {

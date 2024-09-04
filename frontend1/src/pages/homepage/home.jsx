@@ -12,7 +12,9 @@ export default function Home() {
   const [todos, setTodos] = useState([]);
 
   const fetchData = async () => {
-    const response = await axios.get("http://localhost:4000/api/todo");
+    const response = await axios.get(
+      "https://todo-backend-9bt4.onrender.com/api/todo"
+    );
     const items = await response.data;
     return setTodos(items.data);
   };
