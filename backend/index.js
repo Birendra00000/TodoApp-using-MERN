@@ -7,8 +7,14 @@ require("dotenv").config();
 //for using API in frontend
 // Allow requests from http://localhost:3000
 // app.use(cors({ origin: "http://localhost:3000/" }));
-app.use(cors({ origin: "todo-mern-drab-one.vercel.app" }));
-
+// CORS Configuration
+app.use(
+  cors({
+    origin: "todo-mern-drab-one.vercel.app", // Replace with your actual frontend URL
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  })
+);
 //json parse
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
