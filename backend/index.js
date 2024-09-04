@@ -7,7 +7,7 @@ require("dotenv").config();
 //for using API in frontend
 // Allow requests from http://localhost:3000
 // app.use(cors({ origin: "http://localhost:3000/" }));
-app.use(cors({ origin: "http://localhost:3000" }));
+app.use(cors({ origin: "https://todo-backend-9bt4.onrender.com/" }));
 
 //json parse
 app.use(express.json());
