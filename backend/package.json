@@ -2,8 +2,7 @@
   "name": "todomern",
   "description": "",
   "scripts": {
-    "start": "nodemon index.js",
-    "build": "react-scripts build"
+    "start": "nodemon index.js"
   },
   "dependencies": {
     "bcrypt": "^5.1.1",
