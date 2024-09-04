@@ -1,12 +1,13 @@
 const User = require("../model/userModel");
 const bcrypt = require("bcrypt");
 var jwt = require("jsonwebtoken");
+require("dotenv").config();
 
 exports.userRegistration = async (req, res, next) => {
   try {
-    const { name, email, password } = req.body;
+    const { firstName, lastName, email, password } = req.body;
     console.log(req.body);
-    if (!name || !email || !password) {
+    if (!firstName || !lastName || !email || !password) {
       return res.status(400).json({
         message: "Pleased fill out the form",
       });
@@ -23,14 +24,15 @@ exports.userRegistration = async (req, res, next) => {
     const hashPassword = await bcrypt.hash(req.body.password, 6);
 
     const newUser = await User.create({
-      userName: name,
+      firstName: firstName,
+      lastName: lastName,
       userEmail: email.toLowerCase(),
       userPassword: hashPassword,
     });
 
     //FOR GENERATING JWT TOKEN
 
-    const token = jwt.sign({ id: newUser._id }, "secretkey1", {
+    const token = jwt.sign({ id: newUser._id }, process.env.JWT_SECRET, {
       expiresIn: "7d",
     });
 
@@ -71,7 +73,7 @@ exports.userLogin = async (req, res) => {
 
     //FOR GENERATING JWT TOKEN
 
-    const token = jwt.sign({ id: user._id }, "secretkey1", {
+    const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
       expiresIn: "7d",
     });
 

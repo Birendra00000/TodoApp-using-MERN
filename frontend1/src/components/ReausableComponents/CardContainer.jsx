@@ -3,7 +3,7 @@ import TodoStatus from "./TodoStatus";
 
 const CardContainer = ({ todo }) => {
   return (
-    <div className="w-[90%] h-[150px] md:h-[200px] border border-gray-500 rounded-lg ">
+    <div className=" h-[150px] md:h-[200px] border border-gray-500 rounded-lg w-[90%]">
       <div className="w-full grid grid-cols-8 gap-2 items-center h-[80%]">
         {" "}
         <TodoStatusColor date={todo.todoDate} className="col-span-1" />

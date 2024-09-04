@@ -6,9 +6,18 @@ import SingleTodoComponents from "../ReausableComponents/SingleTodoComponents";
 
 const TodoCardContainer = () => {
   const TodoItems = useContext(TodoContext);
-
+  console.log("todooo", TodoItems);
   const [openIndex, setOpenIndex] = useState(null);
-  const [defaultOpenIndex, setOpenDefaultIndex] = useState(0);
+  const [defaultOpenIndex, setOpenDefaultIndex] = useState(null);
+
+  useEffect(() => {
+    if (TodoItems) {
+      const firstExtremeIndex = TodoItems.findIndex(
+        (todo) => todo.todoPriority === "Extreme"
+      );
+      setOpenDefaultIndex(firstExtremeIndex);
+    }
+  });
 
   useEffect(() => {
     setOpenIndex(defaultOpenIndex);
@@ -18,7 +27,7 @@ const TodoCardContainer = () => {
     setOpenIndex(index);
   };
   return (
-    <div className="mt-[8%] w-[95%] h-full">
+    <div className="mt-[8%] w-[95%] ">
       <div className="remove--scroller grid grid-cols-2 w-full  justify-center  h-[600px] gap-x-1 lg:gap-4 overflow-y-auto">
         <div className="shadow-md border border-gray-500">
           <div className="w-full flex justify-center items-center h-[95vh]">
@@ -37,7 +46,7 @@ const TodoCardContainer = () => {
                               className={`w-[90%]  h-[200px] border border-gray-500 rounded-lg ${
                                 openIndex === index ? "bg-gray-200" : ""
                               }`}
-                              index
+                              onClick={() => handleClick(index)}
                             >
                               <CardContainer todo={todo} />
                             </div>

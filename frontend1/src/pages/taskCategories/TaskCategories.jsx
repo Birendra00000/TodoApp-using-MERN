@@ -6,7 +6,7 @@ import { FaArrowLeft } from "react-icons/fa";
 
 const TaskCategories = () => {
   return (
-    <div className="mt-[8%] w-full h-full ">
+    <div className="mt-[8%] w-full  ">
       {" "}
       <div className="w-[95%] flex   justify-center   border border-gray-500 h-[600px] rounded-md">
         {" "}
@@ -26,10 +26,7 @@ const TaskCategories = () => {
             </span>
           </div>
           <span>
-            <Button
-              title="Add Categories"
-              varient="bg-red-500 text-white  text-[12px] lg:text-[16px]"
-            />
+            <Button title="Add Categories" varient="bg-red-500 text-white  " />
           </span>
           <div>
             <span className=" flex justify-between items-center">

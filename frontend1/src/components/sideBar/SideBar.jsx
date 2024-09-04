@@ -20,7 +20,7 @@ const SideBar = () => {
           <UserProfile />
           <div className="flex flex-col gap-2 ml-[6%]  text-white">
             <Link to="/" className=" no-underline text-white">
-              <div className="  flex gap-2 items-center p-2 hover:text-red-400 hover:bg-white  w-[285px] hover:rounded-md ">
+              <div className="  flex gap-2 items-center p-2 hover:text-red-400 hover:bg-white  w-[90%] hover:rounded-md ">
                 <MdDashboard />
                 <p className="mb-0 font-medium text-[10px] md:text-[16px] lg:text-[16px]">
                   DashBoard
@@ -28,7 +28,7 @@ const SideBar = () => {
               </div>{" "}
             </Link>
             <Link to="/vitaltask" className=" no-underline text-white">
-              <div className="flex gap-2 items-center p-2 hover:bg-white hover:text-red-400 w-[285px] hover:rounded-md">
+              <div className="flex gap-2 items-center p-2 hover:bg-white hover:text-red-400 w-[90%] hover:rounded-md">
                 <FaExclamation />
                 <p className="mb-0 font-medium text-[10px] md:text-[16px] lg:text-[16px]">
                   Vital Task
@@ -36,7 +36,7 @@ const SideBar = () => {
               </div>{" "}
             </Link>
             <Link to="/usertask" className="no-underline text-white ">
-              <div className="flex gap-2 items-center p-2 hover:bg-white hover:text-red-400 w-[285px] hover:rounded-md">
+              <div className="flex gap-2 items-center p-2 hover:bg-white hover:text-red-400 w-[90%] hover:rounded-md">
                 <FaRegCalendarCheck />
                 <p className="mb-0 font-medium text-[10px] md:text-[16px] lg:text-[16px]">
                   My task
@@ -44,7 +44,7 @@ const SideBar = () => {
               </div>
             </Link>{" "}
             <Link to="/taskcategories" className="no-underline text-white ">
-              <div className="flex gap-2 items-center p-2 hover:bg-white hover:text-red-400 w-[285px] hover:rounded-md cursor-pointer">
+              <div className="flex gap-2 items-center p-2 hover:bg-white hover:text-red-400 w-[90%] hover:rounded-md cursor-pointer">
                 <AiOutlineBars />
                 <p className="mb-0 font-medium text-[10px] md:text-[16px] lg:text-[16px]">
                   {" "}
@@ -52,13 +52,13 @@ const SideBar = () => {
                 </p>
               </div>{" "}
             </Link>
-            <div className="flex gap-2 items-center p-2 hover:bg-white hover:text-red-400 w-[285px] hover:rounded-md cursor-pointer">
+            <div className="flex gap-2 items-center p-2 hover:bg-white hover:text-red-400 w-[90%] hover:rounded-md cursor-pointer">
               <IoIosSettings />
               <p className="mb-0 font-medium text-[10px] md:text-[16px] lg:text-[16px]">
                 Settings
               </p>
             </div>{" "}
-            <div className="flex gap-2 items-center p-2 hover:bg-white hover:text-red-400 cursor-pointer w-[285px] hover:rounded-md">
+            <div className="flex gap-2 items-center p-2 hover:bg-white hover:text-red-400 cursor-pointer w-[90%] hover:rounded-md">
               <IoHelp />
               <p className="mb-0 font-medium text-[10px] md:text-[16px] lg:text-[16px]">
                 Help
@@ -67,7 +67,7 @@ const SideBar = () => {
           </div>
         </div>
         <div
-          className="flex gap-2 items-center p-2 hover:rounded-md w-[285px] hover:bg-gray-400 cursor-pointer text-white  ml-[6%] mb-4"
+          className="flex gap-2 items-center p-2 hover:rounded-md w-[90%] hover:bg-gray-400 cursor-pointer text-white  ml-[6%] mb-4"
           onClick={logOut}
         >
           <MdLogout />

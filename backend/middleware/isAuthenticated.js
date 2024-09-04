@@ -1,55 +1,44 @@
-var jwt = require("jsonwebtoken");
-const User=require("../model/userModel")
+const jwt = require("jsonwebtoken");
+const User = require("../model/userModel");
 const promisify = require("util").promisify;
 
 const isAuthenticated = async (req, res, next) => {
-    console.log("The user is authenticated");
-    //   next();
-  
-    const token = req.headers.authorization;
-  
-    if (!token) {
-      return res.status(403).json({
-        message: "Pleased provide token",
+  // Extract the token from the 'Authorization' header
+  const authHeader = req.headers.authorization;
+  // Check if the token exists
+  if (!authHeader || !authHeader.startsWith("Bearer ")) {
+    return res.status(403).json({
+      message: "Please provide a token",
+    });
+  }
+
+  // Extract the token from the header
+  const token = authHeader.split(" ")[1];
+
+  try {
+    // Verify the token
+    const decodeToken = await promisify(jwt.verify)(
+      token,
+      process.env.JWT_SECRET // Make sure this matches the secret used for signing tokens
+    );
+
+    // Find the user associated with the token
+    const user = await User.findOne({ _id: decodeToken.id });
+
+    if (!user) {
+      return res.status(404).json({
+        message: "User does not exist with this token",
       });
     }
-  
-    // jwt.verify(token, process.env.SECRET_KEY, (error, success) => {
-    //   if (error) {
-    //     res.status(400).json({
-    //       message: "Invaid Token",
-    //     });
-    //   } else {
-    //     res.status(200).json({
-    //       message: "Valid token successfully",
-    //     });
-    //   }
-    // });
-  
-    //Alterntive methods
-  
-    try {
-      const decodeToken = await promisify(jwt.verify)(
-        token,
-        process.env.SECRET_KEY
-      );
-      console.log("The decode token is", decodeToken.id);
-  
-      const userDoesExit = await User.findOne({ _id: decodeToken.id });
-  
-      if (!userDoesExit) {
-        res.status(404).json({
-          message: "User doesn't exist with this token",
-        });
-      }
-      req.user = userDoesExit;
-      next();
-    } catch (error) {
-      res.status(400).json({
-        message: "Don't try to do this",
-      });
-    }
-  };
-  
-  module.exports = isAuthenticated;
-  
+
+    // Attach the user to the request object
+    req.user = user;
+    next();
+  } catch (error) {
+    return res.status(400).json({
+      message: "Invalid token",
+    });
+  }
+};
+
+module.exports = isAuthenticated;

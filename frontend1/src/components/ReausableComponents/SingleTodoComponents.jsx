@@ -12,7 +12,7 @@ const SingleTodoComponents = ({ data }) => {
             <span className="">
               <img
                 src={data.todoImage}
-                alt=""
+                alt="abc"
                 className="h-[180px] w-[180px] rounded-md"
               />
             </span>

@@ -128,7 +128,10 @@ const UpdateTodo = ({ data, id }) => {
                 {" "}
                 <div className=" second--container w-[95%] h-full mt-[2%]  flex flex-col gap-1 lg:gap-3">
                   <div className="text-normal font-semibold flex flex-col gap-1">
-                    <label for="title" className=" text-[12px] lg:text-[16px]">
+                    <label
+                      htmlFor="title"
+                      className=" text-[12px] lg:text-[16px]"
+                    >
                       Title{" "}
                     </label>
                     <input
@@ -140,7 +143,7 @@ const UpdateTodo = ({ data, id }) => {
                     />
                   </div>
                   <div className="text-normal  text-[12px] lg:text-[16px] font-semibold flex flex-col gap-1">
-                    <label for="title">Date </label>
+                    <label htmlFor="title">Date </label>
                     <input
                       type="date"
                       className="  text-[12px] lg:text-[16px] outline-none w-[60%]  p-[6px] border border-gray-600 rounded-lg cursor-pointer"

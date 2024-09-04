@@ -17,7 +17,9 @@ const AddTask = () => {
         onClick={() => setShow(!show)}
       >
         <FaPlus className="text-red-400" />
-        <p className="mb-0 text-gray-500 text-[12px] ">Add Task</p>
+        <p className="mb-0 text-gray-500 text-[12px] lg:text-[16px]">
+          Add Task
+        </p>
       </button>
       {show && <CreateTodoModal handleClick={handleClick} />}
     </>

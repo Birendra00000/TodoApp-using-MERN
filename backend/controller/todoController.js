@@ -202,3 +202,35 @@ exports.getSingleTodo = async (req, res) => {
     });
   }
 };
+
+//For searching todoItems using Title
+
+exports.getSearchTodo = async (req, res) => {
+  try {
+    const { title } = req.query;
+
+    // Build the search query based on provided parameters
+    const searchQuery = {};
+
+    if (title) {
+      searchQuery.todoTitle = { $regex: new RegExp(title, "i") }; // Case-insensitive search
+    }
+    const todos = await todoItems.find(searchQuery);
+
+    if (todos.length > 0) {
+      res.status(200).json({
+        message: "Successfully fetched search results",
+        data: todos,
+      });
+    } else {
+      res.status(404).json({
+        message: "No todos found matching the search criteria",
+      });
+    }
+  } catch (error) {
+    console.log(error.message);
+    res.status(500).json({
+      message: "An error occurred while searching for todos",
+    });
+  }
+};

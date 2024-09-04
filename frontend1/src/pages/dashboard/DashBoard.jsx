@@ -10,7 +10,7 @@ const DashBoard = () => {
   const userName = userData?.userName || "Guest";
 
   return (
-    <div className="mt-[6%] w-full h-full ">
+    <div className="mt-[6%] w-full ">
       <h3 className="">Welcome back, {userName}</h3>
       <div className="w-[95%] flex justify-center items-center border border-gray-500  h-[600px] overflow-auto">
         <div className="grid md:grid-cols-2 md:grid-rows-2 gap-3 w-[95%] h-[95%]">

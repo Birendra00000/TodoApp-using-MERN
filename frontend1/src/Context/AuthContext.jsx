@@ -1,4 +1,5 @@
 import React, { createContext, useState, useEffect, useContext } from "react";
+import { jwtDecode } from "jwt-decode";
 
 const AuthContext = createContext();
 
@@ -8,15 +9,34 @@ const AuthProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const storeData = JSON.parse(localStorage.getItem("user_data"));
 
-  useEffect(() => {
-    if (storeData) {
-      const { userToken, user } = storeData;
-      setToken(userToken);
-      setUserData(user);
-      setIsAuthenticated(true);
-    } else {
-      console.log("No user data found in localStorage");
+  const isTokenExpired = (token) => {
+    if (!token) return true;
+    try {
+      const decodedToken = jwtDecode(token);
+      return decodedToken.exp * 1000 < Date.now();
+    } catch (error) {
+      return true;
     }
+  };
+
+  useEffect(() => {
+    const verifyToken = async () => {
+      if (storeData) {
+        const { userToken, user } = storeData;
+        if (isTokenExpired(userToken)) {
+          logOut(); // Clear invalid token and user data
+          console.log("Token expired, user logged out");
+        } else {
+          setToken(userToken);
+          setUserData(user);
+          setIsAuthenticated(true);
+        }
+      } else {
+        console.log("No user data found in localStorage");
+      }
+    };
+
+    verifyToken();
   }, []);
 
   const logIn = (newToken, newData) => {

@@ -9,6 +9,8 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import { RxCross1 } from "react-icons/rx";
+import axios from "axios";
+
 const Navbar = () => {
   const TodoItems = useContext(TodoContext);
 
@@ -19,17 +21,33 @@ const Navbar = () => {
   };
 
   const [value, onChange] = useState(new Date());
-  const [search, setSearch] = useState("");
-
-  const handleSearch = (e) => {
-    setSearch(e.target.value);
-  };
-
-  const filterData = TodoItems.filter((item) =>
-    item.todoTitle.toLowerCase().includes(search.toLowerCase())
-  );
   const [showNavBar, setShowNavBar] = useState(false);
   const [closeNavbar, setCloseNavbar] = useState(true);
+  const [search, setSearch] = useState("");
+  const [searchResult, setSearchResult] = useState([]);
+
+  const handleSearch = async (e) => {
+    setSearch(e.target.value);
+    try {
+      if (e.target.value.length === 0) {
+        setSearchResult([]);
+        return;
+      }
+      const response = await axios.get(
+        `http://localhost:4000/api/search?title=${encodeURIComponent(
+          e.target.value
+        )}`
+      );
+      setSearchResult(response.data.data);
+    } catch (error) {
+      console.log("An error occured while fetching search Todo", error);
+    }
+  };
+
+  const handleSearchItemClick = (id) => {
+    setSearch(""); // Clear the search bar
+    setSearchResult([]); // Clear the search results
+  };
 
   const handleMobileResponsivnese = () => {
     setShowNavBar(!showNavBar);
@@ -115,7 +133,7 @@ const Navbar = () => {
       {search && (
         <div className="mt-1 p-1 w-full flex justify-center absolute">
           <span className="bg-white w-[450px] shadow-md rounded-md">
-            {filterData.length > 0 ? (
+            {/* {filterData.length > 0 ? (
               <ul>
                 {filterData.map((item) => (
                   <li key={item.id} className="py-1">
@@ -128,7 +146,18 @@ const Navbar = () => {
                 {" "}
                 <p className="text-gray-700">No results found for "{search}"</p>
               </span>
-            )}
+            )} */}
+            {searchResult &&
+              searchResult.map((todo) => (
+                <Link
+                  to={`/search/${todo._id}`}
+                  onClick={() => handleSearchItemClick(todo._id)}
+                  className="no-underline bg-white w-[450px] shadow-md rounded-md"
+                >
+                  {" "}
+                  <div className="p-2 text-gray-500">{todo.todoTitle}</div>
+                </Link>
+              ))}
           </span>
         </div>
       )}

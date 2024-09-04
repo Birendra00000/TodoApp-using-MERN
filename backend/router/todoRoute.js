@@ -4,6 +4,7 @@ const {
   deleteTodo,
   getTodo,
   getSingleTodo,
+  getSearchTodo,
 } = require("../controller/todoController");
 const isAuthenticated = require("../middleware/isAuthenticated");
 
@@ -19,4 +20,7 @@ router
   .put(upload.single("todoImage"), updateTodo)
   .delete(deleteTodo)
   .get(getSingleTodo);
+
+router.route("/search").get(getSearchTodo);
+
 module.exports = router;

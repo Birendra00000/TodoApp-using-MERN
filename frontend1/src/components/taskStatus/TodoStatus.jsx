@@ -27,20 +27,21 @@ const TodoStatus = () => {
       return { progress: 0, inProgressCount: 0, notStartedCount: 0 };
     }
 
-    const today = new Date();
     let completedCount = 0;
     let inProgressCount = 0;
     let notStartedCount = 0;
     // Count todos based on their todoDate
-    todos.forEach((todo) => {
-      const todoDate = new Date(todo.todoDate);
+    todos.forEach((todos) => {
+      const today = new Date();
 
-      if (todoDate < today) {
-        completedCount++;
+      const todoDate = new Date(todos.todoDate);
+
+      if (todoDate.toDateString() === today.toDateString()) {
+        inProgressCount++;
       } else if (todoDate > today) {
         notStartedCount++;
       } else {
-        inProgressCount++;
+        completedCount++;
       }
     });
 

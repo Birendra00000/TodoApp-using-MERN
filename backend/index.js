@@ -1,8 +1,8 @@
 const express = require("express");
 const { connectDatabase } = require("./database");
 const app = express();
-require("dotenv").config();
 const cors = require("cors");
+require("dotenv").config();
 
 //for using API in frontend
 // Allow requests from http://localhost:3000
@@ -13,7 +13,7 @@ app.use(cors({ origin: "http://localhost:3000" }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 //We are getting a port number from .env
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 5000;
 
 //For connecting data we are invoking a function
 connectDatabase(process.env.MONGO_URL);

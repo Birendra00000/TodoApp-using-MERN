@@ -25,7 +25,7 @@ const TaskContainer = () => {
   };
 
   return (
-    <div className="mt-[8%] w-[95%] h-full">
+    <div className="mt-[8%] w-[95%] ">
       <div className="grid grid-cols-2 w-full justify-center h-[600px] gap-x-1  lg:gap-5  shadow-md overflow-y-auto">
         <div className=" border border-gray-500">
           <div className="w-full flex justify-center items-center h-[95vh] overflow-auto">

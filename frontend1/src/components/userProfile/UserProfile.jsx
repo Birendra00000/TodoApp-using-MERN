@@ -5,7 +5,9 @@ const UserProfile = () => {
   const { userData } = useAuth();
   console.log("USERDATA", userData);
   // Ensure userData is available and has userName and email properties
-  const userName = userData?.userName || "Guest";
+  const firstName = userData?.firstName;
+  const lastName = userData?.lastName;
+  const userName = userData?.userName;
   const userEmail = userData?.userEmail || "Not provided";
   return (
     <div className="relative top-[-30px] md:top-[-60px] text-white">
@@ -17,6 +19,7 @@ const UserProfile = () => {
       />
       <div className="flex justify-center">
         <p className="mb-0 text-[10px] md:text-[16px] lg:text-[16px]">
+          {firstName} {lastName}
           {userName}
         </p>
       </div>
