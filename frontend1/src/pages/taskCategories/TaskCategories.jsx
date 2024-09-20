@@ -2,7 +2,6 @@ import React from "react";
 import Button from "../../components/ReausableComponents/Button";
 import TaskTableStatus from "../../components/taskCategories/TaskTableStatus";
 import TaskTablepriority from "../../components/taskCategories/TaskTablepriority";
-import { FaArrowLeft } from "react-icons/fa";
 
 const TaskCategories = () => {
   return (

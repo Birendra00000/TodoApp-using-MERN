@@ -15,6 +15,7 @@ const upload = multer({ storage: storage });
 const router = require("express").Router();
 
 router.route("/todo").post(upload.single("todoImage"), createTodo).get(getTodo);
+
 router
   .route("/todo/:id")
   .put(upload.single("todoImage"), updateTodo)

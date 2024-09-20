@@ -17,7 +17,7 @@ const Login = () => {
   // console.log("data", data);
   const navigate = useNavigate();
 
-  console.log(data);
+  // console.log(data);
 
   const handleChange = (e) => {
     setData({
@@ -35,10 +35,15 @@ const Login = () => {
     try {
       const response = await axios.post(
         "https://todo-backend-9bt4.onrender.com/api/userlogin",
-        data
+        data,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
       );
-      console.log(JSON.stringify(response.data.data));
-      console.log("response", response.data.user);
+      // console.log(JSON.stringify(response.data.data));
+      // console.log("response", response.data.user);
       if (response.status === 200) {
         const newData = response.data.user;
         const newToken = response.data.token;
@@ -50,7 +55,9 @@ const Login = () => {
         setError(response.data.message);
       }
     } catch (error) {
-      notifyError(error.response.data.message);
+      const errorMessage =
+        error.response?.data?.message || "Network Error. Please try again.";
+      notifyError(errorMessage);
     }
   };
 

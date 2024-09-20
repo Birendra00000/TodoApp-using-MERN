@@ -35,7 +35,12 @@ const TodoRegister = () => {
     try {
       const response = await axios.post(
         "https://todo-backend-9bt4.onrender.com/api/userRegister",
-        data
+        data,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
       );
       console.log(JSON.stringify(response.data.data));
       if (response.status === 200) {
