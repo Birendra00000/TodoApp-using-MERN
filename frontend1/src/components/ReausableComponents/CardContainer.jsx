@@ -19,7 +19,7 @@ const CardContainer = ({ todo }) => {
         </span>
         <span className="col-span-3 flex mt-2 md:mt-0 md:items-end justify-center h-[100px] md:h-[120px]">
           <img
-            src={todo.todoImage}
+            src={todo?.todoImage}
             alt=""
             className="w-[90px] md:w-[120px] h-full object-cover rounded-lg"
           />
