@@ -54,11 +54,11 @@ exports.updateTodo = async (req, res) => {
   try {
     const todoId = req.params.id;
     const { title, description, date, priority } = req.body;
-    console.log(req.body.title);
-    console.log(req.body.title);
-    console.log(req.body.description);
-    console.log(req.body.date);
-    console.log(req.body.priority);
+    // console.log(req.body.title);
+    // console.log(req.body.title);
+    // console.log(req.body.description);
+    // console.log(req.body.date);
+    // console.log(req.body.priority);
 
     //  Validate required fields
     // if (!title || !description || !date || !priority) {

@@ -15,7 +15,7 @@ const TodoRegister = () => {
     email: "",
     password: "",
   });
-  console.log("LOGINNN", logIn);
+  // console.log("LOGINNN", logIn);
   // console.log("data", data);
   const navigate = useNavigate();
 
@@ -42,13 +42,13 @@ const TodoRegister = () => {
           },
         }
       );
-      console.log(JSON.stringify(response.data.data));
+      // console.log(JSON.stringify(response.data.data));
       if (response.status === 200) {
         const newData = response.data.data;
         const newToken = response.data.token;
-        console.log("response.data.token", response.data.token);
-        console.log("Received newToken:", newToken);
-        console.log("Received newData:", newData);
+        // console.log("response.data.token", response.data.token);
+        // console.log("Received newToken:", newToken);
+        // console.log("Received newData:", newData);
         logIn(newToken, newData);
         notifySuccess(response.data.message);
 
