@@ -11,7 +11,8 @@ require("dotenv").config();
 
 // CORS Configuration
 const allowedOrigins = [
-  "https://todo-mern-drab-one.vercel.app" || "https:localhost:3000",
+  "https://todo-mern-drab-one.vercel.app",
+  "https:localhost:3000",
 ];
 app.use(
   cors({
